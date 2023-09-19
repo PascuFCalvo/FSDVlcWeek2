@@ -1,0 +1,420 @@
+html {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+@font-face {
+    font-family: 'pretendoregular';
+    src: url(../fonts/pretendo.woff) format('woff2'),
+        url(../fonts/pretendo.woff2) format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ComicSansMS';
+    src: url(../fonts/ComicSansMS.woff) format('woff2'),
+        url(../fonts/ComicSansMS.woff2) format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+#carcasa {
+    margin: auto;
+    height: 52em;
+    width: 31.5em;
+    background: #c4bebb;
+    border-top-right-radius: 3%;
+    border-top-left-radius: 3%;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+    border: black solid 1px;
+    position: relative;
+}
+
+.marco {
+    margin: 2em 1.2em 2em 1.2em;
+    height: 25em;
+    width: 29em;
+    background: rgb(22, 22, 22);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border: black inset 1px;
+    display: flex;
+}
+
+#boton {
+    height: 20px;
+    width: 5px;
+    position: absolute;
+    background-color: #272929;
+    border: #272929 solid 1px;
+    border-bottom-right-radius: 6px;
+    border-top-right-radius: 6px;
+    top: 200px;
+    left: 503px;
+}
+
+.pantalla {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    height: 320px;
+    width: 330px;
+    margin: 2em auto auto auto;
+    background: #84d07d;
+    border: #272929 solid 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.villepixel {
+    height: 300px;
+    width: 310px;
+
+}
+
+#video {
+    display: none;
+    background-color: white;
+    height: 320px;
+    width: 330px;
+}
+
+
+.color {
+    position: absolute;
+    top: 385px;
+    left: 90px;
+    font-size: 2em;
+    color: grey;
+    font-style: italic;
+}
+
+.c {
+    font-family: "ComicSansMS";
+    position: absolute;
+    color: #830f2e;
+    top: 385px;
+    left: 300px;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.o {
+    font-family: "ComicSansMS";
+    position: absolute;
+    color: #3d3d83;
+    top: 385px;
+    left: 320px;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.l {
+    font-family: "ComicSansMS";
+    position: absolute;
+    color: #599c21;
+    top: 385px;
+    left: 346px;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.oo {
+    font-family: "ComicSansMS";
+    position: absolute;
+    color: #9b752f;
+    top: 385px;
+    left: 365px;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.r {
+    font-family: "ComicSansMS";
+    position: absolute;
+    color: #08507e;
+    top: 385px;
+    left: 391px;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.led_on {
+    border: solid 1px red;
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 50%;
+    position: absolute;
+    top: 13em;
+    left: 3.8em;
+
+}
+
+.led_on p {
+    color: #c4bebb;
+    position: absolute;
+    left: -3.9em;
+    top: -0.5em;
+    font-size: 0.6em;
+}
+
+
+
+.nintendo {
+    font-family: pretendoregular;
+    font-size: 25px;
+    width: 160px;
+    text-align: center;
+    border: #494786 solid 3px;
+    border-radius: 20px;
+    position: relative;
+    color: #494786;
+    left: 180px;
+    top: -0.2em;
+}
+
+
+
+.pad {
+    position: absolute;
+    top: -20px;
+    left: -15em;
+}
+
+.pad:hover{
+    cursor: pointer;
+}
+
+#centro {
+    position: absolute;
+    display: flex;
+    font-size: 2.5em;
+    background-color: #272929;
+    height: 40px;
+    width: 40px;
+    top: 620px;
+    left: 355px;
+    color: #272929(31, 31, 31);
+
+}
+
+#centro p {
+    margin: auto;
+    position: relative;
+    top: -9px;
+}
+
+#arriba {
+    position: absolute;
+    display: flex;
+    font-size: 2.5em;
+    background-color: #272929;
+    height: 40px;
+    width: 40px;
+    top: 580px;
+    left: 355px;
+    color: black;
+    border: 1px solid #272929(0, 0, 0, .3);
+    border-bottom: none;
+    border-radius: 4px 4px 0px 0px;
+    box-shadow: 3px 0px 0px #272929(0, 0, 0, 0.3);
+}
+
+#arriba p {
+    margin: auto;
+    position: relative;
+    top: -12px;
+}
+
+#abajo {
+    position: absolute;
+    display: flex;
+    font-size: 2.5em;
+    background-color: #272929;
+    height: 40px;
+    width: 40px;
+    top: 660px;
+    left: 355px;
+    color: black;
+    border: 1px solid #272929(0, 0, 0, .3);
+    border-top: none;
+    border-radius: 0px 0px 4px 4px;
+    box-shadow: 3px 1px 1px #272929(0, 0, 0, 0.3);
+}
+
+#abajo p {
+    margin: auto;
+    position: relative;
+    top: -12px;
+}
+
+#der {
+    position: absolute;
+    display: flex;
+    font-size: 2.5em;
+    background-color: #272929;
+    height: 40px;
+    width: 40px;
+    top: 620px;
+    left: 395px;
+    color: black;
+    border: 1px solid #272929(0, 0, 0, .3);
+    border-left: none;
+    border-radius: 0px 4px 4px 0px;
+    box-shadow: 3px 3px 1px #272929(0, 0, 0, 0.3);
+
+
+}
+
+#der p {
+    margin: auto;
+    position: relative;
+    top: -12px;
+}
+
+#izq {
+
+    position: absolute;
+    display: flex;
+    font-size: 2.5em;
+    background-color: #272929;
+    height: 40px;
+    width: 40px;
+    top: 620px;
+    left: 315px;
+    color: black;
+    border: 1px solid #272929(0, 0, 0, .3);
+    border-right: none;
+    border-radius: 4px 0px 0px 4px;
+}
+
+#izq p {
+    margin: auto;
+    position: relative;
+    top: -12px;
+
+}
+
+
+
+.ab {
+    height: 180px;
+    width: 180px;
+    position: absolute;
+    top: 35em;
+    left: 500px;
+}
+.ab:hover{
+    cursor: pointer;
+}
+
+#a {
+    position: absolute;
+
+    left: -120px;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border: black solid 1px;
+    background: #9a2257;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+#b {
+    position: absolute;
+    top: 50px;
+    left: -180px;
+    height: 60px;
+    width: 60px;
+    border: black solid 1px;
+    border-radius: 50%;
+    background: #9a2257;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+#a p,
+#b p {
+    font-size: 2em;
+    font-family: 'Trebuchet MS', sans-serif;
+    color: rgba(38, 37, 37, 0.273);
+    position: relative;
+    top: 0.1em;
+    left: 0.6em;
+
+}
+
+.bot {
+    height: 180px;
+    display: flex;
+    position: absolute;
+    top: 48em;
+}
+
+
+.ss {
+    height: 100px;
+    width: 150px;
+    position: relative;
+    left: 190px;
+    display: flex;
+}
+.ss:hover{
+    cursor: pointer;
+}
+
+#select {
+    margin: 0 5px 0 0;
+    height: 20px;
+    width: 60px;
+    text-align: center;
+    border-radius: 30px;
+    border: black solid 1px;
+    background: #313131;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+#start {
+    margin: 0 0 0 5px;
+    height: 20px;
+    width: 60px;
+    text-align: center;
+    border-radius: 30px;
+    border: black solid 1px;
+    background: #313131;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+#sel,
+#str {
+    font-size: 1.2em;
+    font-family: 'Trebuchet MS', sans-serif;
+    margin-top: 25px;
+    color: #494786;
+}
+
+/* "diseño" de altavoz */
+
+.altavoz {
+    position: absolute;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    left: 19em;
+    top: -2.5em;
+    line-height: 12px;
+    text-shadow: 1px 1px 0px #494786;
+}
