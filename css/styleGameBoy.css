@@ -107,7 +107,9 @@ body {
     opacity: 70%;
 }
 
-
+.fraglan{
+    height: 300px;
+}
 .pantalla {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     height: 320px;
@@ -120,7 +122,14 @@ body {
     align-items: center;
 }
 
-.villepixel {
+.carousel-control-next-icon{
+    background-image: url(/Resources/flecha\ derecha.png);
+}
+.carousel-control-prev-icon{
+    background-image: url(/Resources/flecha\ izquierda.png);
+}
+
+.printScreen {
     height: 300px;
     width: 310px;
 
