@@ -19,19 +19,42 @@ html {
     font-style: normal;
 }
 
-body {
-    height: 100vh;
-    width: 100vw;
-    margin: 0;
+.web{
     display: flex;
-    align-items: center;
-    justify-content: center;
+}
+
+.ON{
+    position: absolute;
+    left:32.5em;
+    top:12.3em;
+    border: solid 2px purple;
+    border-radius: 5px;
+    color: purple;
+}
+
+.columna{
+    width: 10em;
+    color:white
+}
+
+
+body {
+    
+    width: 100vw;
+    background-image: url(../Resources/background.jpg);
+    background-repeat: no-repeat;
+    height: auto;
+    max-width: 100%
+    
 }
 
 
 
 #carcasa {
+    
     margin: auto;
+    margin-top: 2%;
+    
     height: 52em;
     width: 31.5em;
     background: #c4bebb;
@@ -41,6 +64,8 @@ body {
     border-bottom-right-radius: 10%;
     border: black solid 1px;
     position: relative;
+    
+    box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.3);
 }
 
 .marco {
@@ -67,6 +92,13 @@ body {
     top: 200px;
     left: 503px;
 }
+#boton:hover{
+    background-color: #9a2257
+}
+#boton:active{
+    opacity: 70%;
+}
+
 
 .pantalla {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -86,12 +118,6 @@ body {
 
 }
 
-#video {
-    display: none;
-    background-color: white;
-    height: 320px;
-    width: 330px;
-}
 
 
 .color {
@@ -199,6 +225,7 @@ body {
     cursor: pointer;
 }
 
+
 #centro {
     position: absolute;
     display: flex;
@@ -238,6 +265,30 @@ body {
     margin: auto;
     position: relative;
     top: -12px;
+}
+#arriba:active{
+    opacity: 70%;
+}
+#abajo:active{
+    opacity: 70%;
+}
+#izq:active{
+    opacity: 70%;
+}
+#der:active{
+    opacity: 70%;
+}
+#a:active{
+    opacity: 70%;
+}
+#b:active{
+    opacity: 70%;
+}
+#select:active{
+    opacity: 70%;
+}
+#start:active{
+    opacity: 70%;
 }
 
 #abajo {
@@ -417,4 +468,21 @@ body {
     top: -2.5em;
     line-height: 12px;
     text-shadow: 1px 1px 0px #494786;
+}
+
+@media (max-width: 600px) {
+
+    body{
+        background-color: #313131;
+        background-image: none;
+    }
+  
+
+   #carcasa{
+    position: absolute;
+    margin-top: 5%;
+    margin-left: 5%
+
+    
+   }
 }
