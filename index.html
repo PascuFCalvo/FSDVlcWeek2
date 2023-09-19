@@ -13,9 +13,11 @@
 </head>
 
 <body>
-    
-   
-    <div id="carcasa" class = "col-lg-12">
+    <audio id="audio" controls autoplay loop preload="metadata">
+        <source src="./Resources/8-bit-game-158815.mp3" type="audio/ogg">
+    </audio>
+    <div id="carcasa" class="col-lg-12">
+
         <div class="ON">ON</div>
         <div class="Encendido">
             <input type="button" id="boton"></button>
@@ -24,27 +26,21 @@
             <div id="led_on" class="led led_on">
                 <p>POWER</p>
             </div>
-            <div class="pantalla"><div id="carouselExampleControls" class="printScreen carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img class="d-block w-100" src="./Resources/VillesAdventures.png" alt="First slide">
-                  </div>
-                  <div class="carousel-item">
-                    <img class="fraglan d-block w-100" src="./Resources/FraglanSouls.png" alt="Second slide">
-                  </div>
-                  <div class="carousel-item">
-                    <img class="d-block w-100" src="./Resources/RatsRevenge.png" alt="Third slide">
-                  </div>
+            <div class="pantalla">
+                <div id="carouselExampleControls" class="printScreen carousel slide" data-bs-ride="carousel" data-bs-interval="800">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" >
+                            <img class="imgmenu d-block w-100" src="./Resources/Juego1.png" alt="First slide">
+                        </div>
+                        <div class="carousel-item" >
+                            <img class="imgmenu d-block w-100" src="./Resources/Juego2.png" alt="Second slide">
+                        </div>
+                        <div class="carousel-item" >
+                            <img class="imgmenu d-block w-100" src="./Resources/Juego3.png" alt="Third slide">
+                        </div>
+                    </div>
+
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="sr-only"></span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="sr-only"></span>
-                </a>
-              </div>
                 <span class=" color">GAMEBOY</span>
                 <span class="c">C</span>
                 <span class="o">O</span>

@@ -19,6 +19,17 @@ html {
     font-style: normal;
 }
 
+#audio{
+    display: none;
+}
+
+
+
+.carousel-item{
+    transition: 0.01s;
+   
+}
+
 
 
 .web{
@@ -91,7 +102,7 @@ body {
 
 #boton {
     height: 20px;
-    width: 5px;
+    width: 3px;
     position: absolute;
     background-color: #272929;
     border: #272929 solid 1px;
@@ -99,15 +110,18 @@ body {
     border-top-right-radius: 6px;
     top: 200px;
     left: 503px;
+    
 }
 #boton:hover{
     background-color: #9a2257
 }
 #boton:active{
     opacity: 70%;
+    top:180px;
+    background-color: #9a2257
 }
 
-.fraglan{
+.imgmenu{
     height: 300px;
 }
 .pantalla {
