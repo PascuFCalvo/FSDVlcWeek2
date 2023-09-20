@@ -511,7 +511,7 @@ body {
    #carcasa{
     position: absolute;
     margin-top: 5%;
-    margin-left: 5%
+    scale:0.6;
 
     
    }

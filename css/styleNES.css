@@ -1,9 +1,26 @@
 @import url(https://fonts.googleapis.com/css?family=Coda+Caption:800);
-body {
-   
-   
+.bg-wrapper {
+   height: 100vh;
+   width: 100vw;
+   position: fixed;
+   z-index: -1;
+   opacity: 0.1;
+ }
+ 
+ .bg-wrapper > * {
+   height: 100vh;
+   width: 100vw;
+   object-fit: cover;
+ }
+ 
+ .bg-wrapper > video {
+   animation: fadeIn 3s;
+ }
+ 
+ .bg-wrapper > img {
+   filter: blur(0.3em) contrast(0.3);
+ }
 
-}
 #NintendoNes{
    position: absolute;
    margin-top: -200px;
@@ -359,6 +376,8 @@ box-shadow: none;
 	border: none;
 }
 
+
+
 .cartridge-slot {
 	width: 25em;
 	height: 5.9em;
@@ -393,10 +412,14 @@ box-shadow: none;
 
 .printScreenNES{
    margin: 2em;
-   width: 600px;
-   height: 360px;
    
 }
+
+.imgmenuNES{
+   height: 420px;
+
+}  
+    
 
 
 .gamepad-slot {
