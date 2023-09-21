@@ -5,14 +5,73 @@ let botonAbajo = document.getElementById("botonAbajo");
 let botonArriba = document.getElementById("botonArriba");
 let botonStart = document.getElementById("botonStart");
 
+let repeticiones = 0;
+let maximasrepeticiones = 10;
 let tvEncendida = false;
 let nesEncendida = false;
 let gameSelector = 0;
+let contadorCambios = 0;
+const imagen1 = "url('Resources/Juego1.png')"
+const imagen2 = "url('Resources/Juego1-invert.png')"
+const imagen3 = "url('Resources/Juego2.png')"
+const imagen4 = "url('Resources/Juego2-invert.png')"
+const imagen5 = "url('Resources/Juego3.png')"
+const imagen6 = "url('Resources/Juego3-invert.png')"
 
-console.log(tvScreen);
-console.log(botonEncenderTv);
+let imagenActual = imagen1
 
-// Loop through the collection of elements and add an event listener to each one
+function alternarFondo1(iteracion1) {
+   if (iteracion1 >= 9) {
+      tvScreen.style.backgroundImage = "url('Resources/VillesAdventures.png')";
+     return; 
+   }
+ 
+   const imagen = iteracion1 % 2 === 0 ? imagen1 : imagen2; 
+   tvScreen.style.backgroundImage = imagen;
+ 
+   setTimeout(function () {
+     setTimeout(function () {
+       alternarFondo1(iteracion1 + 1);
+     }, 100);
+   }, 100);
+   }
+
+   function alternarFondo2(iteracion2) {
+      if (iteracion2 >= 9) {
+         tvScreen.style.backgroundImage = "url('Resources/FraglanSouls.png')";
+        return; 
+      }
+    
+      const imagen = iteracion2 % 2 === 0 ? imagen3 : imagen4; 
+      tvScreen.style.backgroundImage = imagen;
+    
+      setTimeout(function () {
+        
+        setTimeout(function () {
+          alternarFondo2(iteracion2 + 1);
+        }, 100);
+      }, 100);
+      }
+
+      function alternarFondo3(iteracion3) {
+         if (iteracion3 >= 9) {
+            tvScreen.style.backgroundImage = "url('Resources/RatsRevenge.png')";
+           return; 
+         }
+       
+         const imagen = iteracion3 % 2 === 0 ? imagen5 : imagen6; 
+         tvScreen.style.backgroundImage = imagen;
+       
+         setTimeout(function () {
+           
+           setTimeout(function () {
+             alternarFondo3(iteracion3 + 1);
+           }, 100);
+         }, 100);
+         }
+
+
+
 
 botonEncenderTv.addEventListener("click", (e) => {
   if (e.target.id === "btn-power-tv") {
@@ -54,23 +113,24 @@ botonEncenderNes.addEventListener("click", (e) => {
 
 botonAbajo.addEventListener("click", (e) => {
   if (e.target.id === "botonAbajo") {
+   gameSelector++;
     switch (gameSelector) {
       case 0:
         tvScreen.style.backgroundImage = "url('Resources/Juego1.png')";
         tvScreen.style.backgroundSize = "820px 500px";
-        gameSelector++;
+        gameSelector = 0
         break;
 
       case 1:
         tvScreen.style.backgroundImage = "url('Resources/Juego2.png')";
         tvScreen.style.backgroundSize = "820px 500px";
-        gameSelector++;
+        gameSelector = 1
         break;
 
       case 2:
         tvScreen.style.backgroundImage = "url('Resources/Juego3.png')";
         tvScreen.style.backgroundSize = "820px 500px";
-
+        gameSelector = 2
         break;
     }
   }
@@ -78,48 +138,49 @@ botonAbajo.addEventListener("click", (e) => {
 
 botonArriba.addEventListener("click", (e) => {
   if (e.target.id === "botonArriba") {
+   gameSelector--;
     switch (gameSelector) {
       case 0:
         tvScreen.style.backgroundImage = "url('Resources/Juego1.png')";
         tvScreen.style.backgroundSize = "820px 500px";
-
+        gameSelector = 0 
         break;
 
       case 1:
         tvScreen.style.backgroundImage = "url('Resources/Juego2.png')";
         tvScreen.style.backgroundSize = "820px 500px";
-        gameSelector--;
+        gameSelector = 1
         break;
 
       case 2:
         tvScreen.style.backgroundImage = "url('Resources/Juego3.png')";
         tvScreen.style.backgroundSize = "820px 500px";
-        gameSelector--;
+        gameSelector = 2
         break;
     }
   }
 });
 
 botonStart.addEventListener("click", (e) => {
-  if (e.target.id === "botonStart"){
-  for(let i = 1; i<=10; i++ ){
-
+   if (e.target.id === "botonStart" && gameSelector === 0) {
+      alternarFondo1(0);
       
-   setTimeout(() => {
+      }else if(e.target.id === "botonStart" && gameSelector === 1)
+      {
+      alternarFondo2(0)   
+      }
+      else if(e.target.id === "botonStart" && gameSelector === 2)
+      {
+      alternarFondo3(0)   
+      }
       
-      tvScreen.style.backgroundImage = "url('Resources/Juego1.png')";
-      tvScreen.style.backgroundSize = "820px 500px";
-      
-      setTimeout(() => {
-      tvScreen.style.backgroundImage = "url('Resources/Juego1-invert.png')";
-      tvScreen.style.backgroundSize = "820px 500px";
-        
-    }, "100");
-    }, "100");
-    
-  }}
-   
-})   
+      })
+ 
+ 
+ 
+ 
+  
+     
       
    
     
