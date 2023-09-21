@@ -95,7 +95,10 @@ botonEncenderTv.addEventListener("click", (e) => {
 });
 
 botonReset.addEventListener("click",(e)=>{
+  
   if(e.target.id === "resetNES"){
+    gameStatusActive = false;
+    gameSelector = 0
     tvScreen.style.background =""
     setTimeout(() => {
       tvScreen.style.backgroundColor = "Black"
