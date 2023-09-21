@@ -511,7 +511,26 @@ body {
    #carcasa{
     position: absolute;
     margin-top: 5%;
-    scale:0.6;
+    scale:0.65;
+
+    
+   }
+
+   
+}
+
+@media (max-width: 400px) {
+
+    body{
+        background-color: #313131;
+        background-image: none;
+    }
+  
+
+   #carcasa{
+    position: absolute;
+    margin-top: 5%;
+    scale:0.5;
 
     
    }

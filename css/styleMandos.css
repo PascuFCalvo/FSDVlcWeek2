@@ -15,7 +15,7 @@ body {
 	gap: 5em;
 	position: absolute;
 	top: 240px;
-	left: -200px
+	left: -180px
 }
 
 .base {
@@ -46,6 +46,10 @@ body {
 	width: 110px;
 	height: 90px;
 
+}
+
+.cross:hover{
+	cursor:pointer;
 }
 
 .back-cross {
@@ -110,6 +114,8 @@ body {
 
 }
 
+
+
 .arrowlf {
 	right: 5px;
 	top: 6px;
@@ -123,6 +129,8 @@ body {
 	box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.61);
 
 }
+
+
 
 .arrowlf:before {
 	content: '';
@@ -159,6 +167,8 @@ body {
 
 }
 
+
+
 .circle {
 	position: absolute;
 	width: 20px;
@@ -175,6 +185,14 @@ body {
 }
 
 .buttons-a-b {
+	position: absolute;
+	right: 26px;
+	top: 80px;
+	height: 50px;
+}
+
+.buttons-a-b:hover {
+	cursor: pointer;
 	position: absolute;
 	right: 26px;
 	top: 80px;
@@ -210,6 +228,7 @@ body {
 .btn-round:active {
 	top: 1px;
 	border: 1px rgba(0, 0, 0, 0.5) solid;
+	background: linear-gradient(to bottom, #DF2015 0%, #f8493677 100%);
 	box-shadow: inset 0px 0px 1px 0px #FBFBFB, 0px 1px 1px 0px rgba(0, 0, 0, 0.21);
 }
 
@@ -241,11 +260,20 @@ body {
 	height: 18px;
 	background-color: #464646;
 	border-radius: 10px;
-	border: 1px solid #272723;
+	
 	margin: 9px 13px;
 	float: left;
 	box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.51);
 }
+
+.btn-central:hover{
+	cursor: pointer;
+}
+.btn-central:active{
+	cursor: pointer;
+	background-color: #46464670;
+}
+
 
 .btn-central:active {
 	box-shadow: inset 0px 0px 0px 0px rgba(255, 255, 255, 0.51);
