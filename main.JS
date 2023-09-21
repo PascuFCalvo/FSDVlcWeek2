@@ -5,6 +5,7 @@ let botonReset = document.getElementById("resetNES");
 let botonAbajo = document.getElementById("botonAbajo");
 let botonArriba = document.getElementById("botonArriba");
 let botonStart = document.getElementById("botonStart");
+let ledEncendido = document.getElementById("ledEncendido");
 
 
 let repeticiones = 0;
@@ -98,12 +99,15 @@ botonReset.addEventListener("click",(e)=>{
     tvScreen.style.background =""
     setTimeout(() => {
       tvScreen.style.backgroundColor = "Black"
+      ledEncendido.style.backgroundColor = "grey"
     setTimeout(() => {
       tvScreen.style.backgroundImage = "url('Resources/nintendo.png')";
       tvScreen.style.backgroundSize = "820px 500px";
+      ledEncendido.style.backgroundColor = "Red"
      setTimeout(() => {
       tvScreen.style.backgroundImage = "url('Resources/Juego1.png')";
       tvScreen.style.backgroundSize = "820px 500px";
+      ledEncendido.style.backgroundColor = "Red"
     }, "2000");}, "200");}, "200");
     
    
@@ -116,7 +120,15 @@ botonReset.addEventListener("click",(e)=>{
 
 botonEncenderNes.addEventListener("click", (e) => {
   if (e.target.id === "powerNES") {
+    if(ledEncendido.style.backgroundColor != "Red"){
+    ledEncendido.style.backgroundColor = "Red"
+    }else if(ledEncendido.style.backgroundColor === "Red"){
+      ledEncendido.style.backgroundColor = "Grey"
+    }
+
+
     if (!nesEncendida && tvEncendida) {
+      
       tvScreen.style.background = "";
       tvScreen.style.backgroundImage = "url('Resources/nintendo.png')";
       tvScreen.style.backgroundSize = "820px 500px";
@@ -128,13 +140,16 @@ botonEncenderNes.addEventListener("click", (e) => {
 
       nesEncendida = true;
     } else if (!tvEncendida) {
+      
       tvScreen.style.backgroundImage = "";
       tvScreen.style.backgroundColor = "#100f0f";
       nesEncendida = false;
+      
     } else {
       tvScreen.style.backgroundImage = "";
       tvScreen.style.backgroundColor = "grey";
       nesEncendida = false;
+      ledEncendido.style.backgroundColor = "Grey"
     }
   }
 });
