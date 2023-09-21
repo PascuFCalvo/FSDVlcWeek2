@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/css/styleNES.css">
     <link rel="stylesheet" href="/css/styleMandos.css">
     <link rel="stylesheet" href="/css/styleTV.css">
+    <link rel="stylesheet" href="/css/superMario.css">
     <title>GAME BOY COLOR</title>
 </head>
 
@@ -126,6 +127,29 @@
                 <div id="monitor">
                     <div class="btn-power-tv" id="btn-power-tv"></div>
                   <div id="monitorscreen">
+                    <div id="canvas-container">
+                        <div id = "supermario">
+                            <div class="mario-game" id="container">
+                                <div class="scorebar">
+                                    <p><span class="topline-mario">VILLE</span>
+                                        <span class="topline-world">BENIMACLET</span>
+                                        <span class="topline-time">TIME</span>
+                                        <span id="bottomline-score">000000</span>
+                                        <span id="bottomline-coin"><img src="/Resources/villemoneda.png" height="40px"> x <span id="updateCoins">00</span></span>
+                                        <span class="bottomline-world">1 - 1</span>
+                                        <span class="bottomline-time" id="timeLeft">000</span>
+                                    </p>
+                                </div>
+                                <div id="background"></div>
+                                <div id="foreground" class="layer foreground"></div>
+                                <div id="items" class="layer"><div id="block"> <img src="/Resources/villemoneda.png" alt="" id="coin"/></div></div>
+                                <div id="plants" class="layer plants"></div>
+                                <div id="moutains" class="layer moutains"></div>
+                                <div id="clouds" class="layer clouds"></div>
+                                <div id="mario" class="lookingRight"></div>
+                            </div>
+                        </div>
+                    
                     <!--<div id="carouselExampleControls" class="printScreenNES carousel slide" data-bs-ride="carousel"
                     data-bs-interval="800">
                     <div class="carousel-inner">

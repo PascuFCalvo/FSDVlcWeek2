@@ -1,3 +1,14 @@
+
+
+
+ 
+ #header-container{
+   text-align: center;
+   font-size: 40px;
+    color: white;
+ }
+
+
 #container {
    max-width: 1024px;
    margin: auto;

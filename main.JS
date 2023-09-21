@@ -6,6 +6,7 @@ let botonAbajo = document.getElementById("botonAbajo");
 let botonArriba = document.getElementById("botonArriba");
 let botonStart = document.getElementById("botonStart");
 let ledEncendido = document.getElementById("ledEncendido");
+let juego = document.getElementById("supermario");
 
 
 let repeticiones = 0;
@@ -34,6 +35,13 @@ function alternarFondo1(iteracion1) {
    const imagen = iteracion1 % 2 === 0 ? imagen1 : imagen2; 
    tvScreen.style.backgroundImage = imagen;
    gameStatusActive = true;
+   setTimeout(() => {
+    tvScreen.style.backgroundImage = "";
+    juego.style.display = "block";
+    tvScreen.style.backgroundSize = "820px 500px";
+  }, "4000");
+
+
  
    setTimeout(function () {
      setTimeout(function () {
@@ -103,14 +111,18 @@ botonReset.addEventListener("click",(e)=>{
     setTimeout(() => {
       tvScreen.style.backgroundColor = "Black"
       ledEncendido.style.backgroundColor = "grey"
+      juego.style.display = "none";
     setTimeout(() => {
       tvScreen.style.backgroundImage = "url('Resources/nintendo.png')";
       tvScreen.style.backgroundSize = "820px 500px";
       ledEncendido.style.backgroundColor = "Red"
+      juego.style.display = "none";
+      
      setTimeout(() => {
       tvScreen.style.backgroundImage = "url('Resources/Juego1.png')";
       tvScreen.style.backgroundSize = "820px 500px";
       ledEncendido.style.backgroundColor = "Red"
+      
     }, "2000");}, "200");}, "200");
     
    
@@ -127,6 +139,7 @@ botonEncenderNes.addEventListener("click", (e) => {
     ledEncendido.style.backgroundColor = "Red"
     }else if(ledEncendido.style.backgroundColor === "Red"){
       ledEncendido.style.backgroundColor = "Grey"
+      juego.style.display = "none";
     }
 
 
@@ -135,10 +148,12 @@ botonEncenderNes.addEventListener("click", (e) => {
       tvScreen.style.background = "";
       tvScreen.style.backgroundImage = "url('Resources/nintendo.png')";
       tvScreen.style.backgroundSize = "820px 500px";
+      juego.style.display = "none";
 
       setTimeout(() => {
         tvScreen.style.backgroundImage = "url('Resources/Juego1.png')";
         tvScreen.style.backgroundSize = "820px 500px";
+        juego.style.display = "none";
       }, "2000");
 
       nesEncendida = true;
@@ -147,12 +162,14 @@ botonEncenderNes.addEventListener("click", (e) => {
       tvScreen.style.backgroundImage = "";
       tvScreen.style.backgroundColor = "#100f0f";
       nesEncendida = false;
+      juego.style.display = "none";
       
     } else {
       tvScreen.style.backgroundImage = "";
       tvScreen.style.backgroundColor = "grey";
       nesEncendida = false;
       ledEncendido.style.backgroundColor = "Grey"
+      juego.style.display = "none";
     }
   }
 });
