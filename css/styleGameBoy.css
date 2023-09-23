@@ -1,23 +1,7 @@
 html {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: sans-serif;
 }
 
-
-@font-face {
-    font-family: 'pretendoregular';
-    src: url(../fonts/pretendo.woff) format('woff2'),
-        url(../fonts/pretendo.woff2) format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'ComicSansMS';
-    src: url(../fonts/ComicSansMS.woff) format('woff2'),
-        url(../fonts/ComicSansMS.woff2) format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
 
 #audio{
     display: none;
@@ -30,9 +14,6 @@ html {
     transition: 0.01s;
    
 }
-
-
-
 .web{
     display: flex;
 }
@@ -44,6 +25,9 @@ html {
     border: solid 2px purple;
     border-radius: 5px;
     color: purple;
+}
+.ON:hover{
+    cursor: pointer;
 }
 
 .columna{
@@ -218,7 +202,7 @@ body {
     position: absolute;
     top: 13em;
     left: 3.8em;
-
+    
 }
 
 .led_on p {
@@ -276,7 +260,7 @@ body {
     top: -9px;
 }
 
-#arriba {
+#arribaGB {
     position: absolute;
     display: flex;
     font-size: 2.5em;
@@ -292,15 +276,15 @@ body {
     box-shadow: 3px 0px 0px #272929(0, 0, 0, 0.3);
 }
 
-#arriba p {
+#arribaGB p {
     margin: auto;
     position: relative;
     top: -12px;
 }
-#arriba:active{
+#arribaGB:active{
     opacity: 70%;
 }
-#abajo:active{
+#abajoGB:active{
     opacity: 70%;
 }
 #izq:active{
@@ -322,7 +306,7 @@ body {
     opacity: 70%;
 }
 
-#abajo {
+#abajoGB {
     position: absolute;
     display: flex;
     font-size: 2.5em;
@@ -338,7 +322,7 @@ body {
     box-shadow: 3px 1px 1px #272929(0, 0, 0, 0.3);
 }
 
-#abajo p {
+#abajoGB p {
     margin: auto;
     position: relative;
     top: -12px;
@@ -487,7 +471,7 @@ body {
     color: #494786;
 }
 
-/* "diseño" de altavoz */
+
 
 .altavoz {
     position: absolute;
