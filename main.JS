@@ -15,6 +15,9 @@ let botonAbajoGameboy = document.getElementById("abajoGB");
 let botonStartGameboy = document.getElementById("start");
 let pantallaGameBoy = document.getElementById("pantallaGameBoy");
 let ledGameBoy = document.getElementById("led_on");
+let encenderTV = document.getElementById("apagarTV");
+var sonidoBoton = new Audio("Resources/sonidoBoton.mp3")
+
 
 let repeticiones = 0;
 let maximasrepeticiones = 10;
@@ -24,8 +27,8 @@ let gameBoyEncendida = false;
 let gameSelector = 0;
 let contadorCambios = 0;
 let gameStatusActive = false;
-let memoryStatus = "url('Resources/Juego1.png')";
-let memoryOcupada = true;
+let somethingInScreen = false;
+let memoria = "";
 
 const imagen1 = "url('Resources/Juego1.png')";
 const imagen2 = "url('Resources/Juego1-invert.png')";
@@ -41,6 +44,7 @@ let imagenActual = imagen1;
 //estas 6 funciones han de ser refactorizadas a 1 sola
 
 function alternarFondo1(iteracion1) {
+  
   if (iteracion1 >= 9) {
     tvScreen.style.backgroundImage = "url('Resources/VillesAdventures.png')";
     return;
@@ -136,14 +140,10 @@ function alternarFondoGameBoy2(iteracion2) {
   gameStatusActive = true;
   setTimeout(() => {
     pantallaGameBoy.style.backgroundImage = "";
-    juegoGB.style.display = "block";
+    juego.style.display = "block";
     pantallaGameBoy.style.backgroundSize = "330px 320px";
   }, "4000");
-  setTimeout(() => {
-    pantallaGameBoy.style.backgroundImage = "";
-    juegoGB.style.display = "block";
-    pantallaGameBoy.style.backgroundSize = "330px 320px";
-  }, "4000");
+  
 
   setTimeout(function () {
     setTimeout(function () {
@@ -162,14 +162,10 @@ function alternarFondoGameBoy3(iteracion3) {
   gameStatusActive = true;
   setTimeout(() => {
     pantallaGameBoy.style.backgroundImage = "";
-    juegoGB.style.display = "block";
+    juego.style.display = "block";
     pantallaGameBoy.style.backgroundSize = "330px 320px";
   }, "4000");
-  setTimeout(() => {
-    pantallaGameBoy.style.backgroundImage = "";
-    juegoGB.style.display = "block";
-    pantallaGameBoy.style.backgroundSize = "330px 320px";
-  }, "4000");
+  
 
   setTimeout(function () {
     setTimeout(function () {
@@ -181,10 +177,12 @@ function alternarFondoGameBoy3(iteracion3) {
 // resto de funciones
 
 function cerrarjuegos() {
+  
   juego.style.display = "none";
   juego2.style.display = "none";
 }
 function encenderconsolas() {
+  
   gameStatusActive = false;
   ledGameBoy.style.backgroundColor = "Red";
   gameBoyEncendida = true;
@@ -195,8 +193,7 @@ function encenderconsolas() {
   setTimeout(() => {
     pantallaGameBoy.style.backgroundImage = "url('Resources/Juego1.png')";
     pantallaGameBoy.style.backgroundSize = "330px 320px";
-    
-    
+    memoria = "url('Resources/Juego1.png')";
   }, "2000");
   ledEncendido.style.backgroundColor = "Red";
   tvScreen.style.background = "";
@@ -205,10 +202,10 @@ function encenderconsolas() {
   setTimeout(() => {
     tvScreen.style.backgroundImage = "url('Resources/Juego1.png')";
     tvScreen.style.backgroundSize = "820px 500px";
-    
   }, "2000");
 }
 function apagarconsolas() {
+  somethingInScreen = false;
   gameStatusActive = false;
   ledGameBoy.style.backgroundColor = "black";
   gameBoyEncendida = false;
@@ -225,23 +222,25 @@ function apagarconsolas() {
 
 botonEncenderTv.addEventListener("click", (e) => {
   if (e.target.id === "btn-power-tv") {
-    if (!tvEncendida) {
+    if (tvEncendida == false) {
+      tvScreen.style.backgroundImage = "";
       tvScreen.style.backgroundColor = "grey";
       tvEncendida = true;
-    } else {
+    }
+    }else if(tvEncendida == true){
       tvScreen.style.backgroundImage = "";
       tvScreen.style.backgroundColor = "#100f0f";
       tvEncendida = false;
-      cerrarjuegos();
     }
   }
-});
+);
 
 //inicio y reset de las consolas
 
 //este boton solo ha de funcionar si la consola esta encendida
 botonReset.addEventListener("click", (e) => {
   if (e.target.id === "resetNES") {
+    somethingInScreen = true;
     if(nesEncendida === true){
     cerrarjuegos();
     gameStatusActive = false;
@@ -269,15 +268,16 @@ botonReset.addEventListener("click", (e) => {
 
 botonEncenderNes.addEventListener("click", (e) => {
   if (e.target.id === "powerNES") {
-    if(!nesEncendida){
+    if(nesEncendida == false && tvEncendida == true){
       encenderconsolas()
-    }else if (nesEncendida){
-      cerrarjuegos();
-      apagarconsolas();
-    }
+    }else if (nesEncendida == false && tvEncendida == false){
+      encenderconsolas()
+      apagateles.style.backgroundColor = "#100f0f";
+      apagateles.style.display = "block";
+     
 
   }
-});
+}});
 
 botonEncenderGameBoy.addEventListener("click", (e) => {
   if (e.target.id === "powerGameBoy") {
@@ -296,8 +296,9 @@ botonEncenderGameBoy.addEventListener("click", (e) => {
 //selectores e inicio de juego
 
 botonAbajo.addEventListener("click", (e) => {
-  if (e.target.id === "botonAbajo" && !gameStatusActive) {
+  if (e.target.id === "botonAbajo" && !gameStatusActive && nesEncendida == true) {
     gameSelector++;
+    sonidoBoton.play();
     switch (gameSelector) {
       case 0:
         tvScreen.style.backgroundImage = "url('Resources/Juego1.png')";
@@ -321,8 +322,9 @@ botonAbajo.addEventListener("click", (e) => {
 });
 
 botonArriba.addEventListener("click", (e) => {
-  if (e.target.id === "botonArriba" && !gameStatusActive) {
+  if (e.target.id === "botonArriba" && !gameStatusActive && nesEncendida == true) {
     gameSelector--;
+    sonidoBoton.play();
     switch (gameSelector) {
       case 0:
         tvScreen.style.backgroundImage = "url('Resources/Juego1.png')";
@@ -346,8 +348,9 @@ botonArriba.addEventListener("click", (e) => {
 });
 
 botonArribaGameboy.addEventListener("click", (e) => {
-  if (e.target.id === "arribaGB" && !gameStatusActive) {
+  if (e.target.id === "arribaGB" && !gameStatusActive && gameBoyEncendidaEncendida == true) {
     gameSelector--;
+    sonidoBoton.play();
     switch (gameSelector) {
       case 0:
         pantallaGameBoy.style.backgroundImage = "url('Resources/Juego1.png')";
@@ -371,8 +374,9 @@ botonArribaGameboy.addEventListener("click", (e) => {
 });
 
 botonAbajoGameboy.addEventListener("click", (e) => {
-  if (e.target.id === "abajoGB" && !gameStatusActive) {
+  if (e.target.id === "abajoGB" && !gameStatusActive  && gameBoyEncendidaEncendida == true) {
     gameSelector++;
+    sonidoBoton.play();
     switch (gameSelector) {
       case 0:
         pantallaGameBoy.style.backgroundImage = "url('Resources/Juego1.png')";
@@ -398,7 +402,7 @@ botonAbajoGameboy.addEventListener("click", (e) => {
 //funcionamiento botones start
 
 botonStart.addEventListener("click", (e) => {
-  if (e.target.id === "botonStart" && gameSelector === 0 && !gameStatusActive) {
+  if (e.target.id === "botonStart" && gameSelector === 0 && !gameStatusActive && gameBoyEncendida == true) {
     alternarFondo1(0);
     alternarFondoGameBoy1(0);
     gameStatusActive = true;
@@ -422,7 +426,7 @@ botonStart.addEventListener("click", (e) => {
 });
 
 botonStartGameboy.addEventListener("click", (e) => {
-  if (e.target.id === "start" && gameSelector === 0 && !gameStatusActive) {
+  if (e.target.id === "start" && gameSelector === 0 && !gameStatusActive && nesEncendida == true) {
     alternarFondo1(0);
     alternarFondoGameBoy1(0);
     gameStatusActive = true;

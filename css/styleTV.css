@@ -1,7 +1,4 @@
 
-
-
- 
  #header-container{
    text-align: center;
    font-size: 40px;
@@ -13,7 +10,15 @@
    max-width: 1024px;
    margin: auto;
  }
- 
+ #apagateles{
+   width: 900px;
+   height: 600px;
+   background-color: grey;
+   display: none;
+   position: absolute;
+   z-index: 50;
+ }
+
  #monitor {
    
    width: 900px;
@@ -31,31 +36,29 @@
  }
  
  #monitor:after {
-    content: '';
-    display: block;
-    position: absolute;
-    bottom: 3%;
-    left: 36%;
-    height: .5%; 
-    width: 28%;
-    background: #ddd; 
-    border-radius: 50%; 
-    box-shadow: 0 0 3px 0 white; 
- }
- 
- #monitorscreen {
-    position: relative;
-    background-color: #100f0f;
-    background-size: cover; 
-    background-position: top center;
-    height: 0; 
-    padding-bottom: 56.25%; 
-    position: relative;
-    overflow: hidden;
- }
+   content: '';
+   display: block;
+   position: absolute;
+   bottom: 3%;
+   left: 36%;
+   height: .5%; 
+   width: 28%;
+   background: #ddd; 
+   border-radius: 50%; 
+   box-shadow: 0 0 3px 0 white; 
+}
 
- 
- 
+#monitorscreen {
+   position: relative;
+   background-color: #100f0f;
+   background-size: cover; 
+   background-position: top center;
+   height: 0; 
+   padding-bottom: 56.25%; 
+   position: relative;
+   overflow: hidden;
+}
+
 
  .btn-power-tv {
 	margin-top: 35em;
