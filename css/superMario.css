@@ -17,6 +17,15 @@ html, body{
    
 }
 
+#supermario2 {
+
+   display: none;
+   position: relative;
+   ;
+   
+}
+
+
 .mario-game {
    position: absolute;
    top: 250px;
