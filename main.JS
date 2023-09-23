@@ -8,7 +8,7 @@ let botonStart = document.getElementById("botonStart");
 let ledEncendido = document.getElementById("ledEncendido");
 let juego = document.getElementById("supermario");
 let juego2 = document.getElementById("supermario2");
-let juegoGB = document.getElementById("supermario-GB");
+
 let botonEncenderGameBoy = document.getElementById("powerGameBoy");
 let botonArribaGameboy = document.getElementById("arribaGB");
 let botonAbajoGameboy = document.getElementById("abajoGB");
@@ -19,7 +19,7 @@ let encenderTV = document.getElementById("apagarTV");
 var sonidoBoton = new Audio("Resources/sonidoBoton.mp3")
 
 
-let repeticiones = 0;
+
 let maximasrepeticiones = 10;
 let tvEncendida = false;
 let nesEncendida = false;
@@ -27,8 +27,7 @@ let gameBoyEncendida = false;
 let gameSelector = 0;
 let contadorCambios = 0;
 let gameStatusActive = false;
-let somethingInScreen = false;
-let memoria = "";
+
 
 const imagen1 = "url('Resources/Juego1.png')";
 const imagen2 = "url('Resources/Juego1-invert.png')";
@@ -46,6 +45,7 @@ let imagenActual = imagen1;
 function alternarFondo1(iteracion1) {
   
   if (iteracion1 >= 9) {
+    
     tvScreen.style.backgroundImage = "url('Resources/VillesAdventures.png')";
     return;
   }
@@ -55,6 +55,7 @@ function alternarFondo1(iteracion1) {
   gameStatusActive = true;
   setTimeout(() => {
     tvScreen.style.backgroundImage = "";
+    tvScreen.style.backgroundColor = "grey";
     juego2.style.display = "block";
     tvScreen.style.backgroundSize = "820px 500px";
   }, "4000");
@@ -76,6 +77,7 @@ function alternarFondo2(iteracion2) {
   gameStatusActive = true;
   setTimeout(() => {
     tvScreen.style.backgroundImage = "";
+    tvScreen.style.backgroundColor = "grey";
     juego2.style.display = "block";
     tvScreen.style.backgroundSize = "820px 500px";
   }, "4000");
@@ -97,6 +99,7 @@ function alternarFondo3(iteracion3) {
   gameStatusActive = true;
   setTimeout(() => {
     tvScreen.style.backgroundImage = "";
+    tvScreen.style.backgroundColor = "grey";
     juego2.style.display = "block";
     tvScreen.style.backgroundSize = "820px 500px";
   }, "4000");
@@ -119,6 +122,7 @@ function alternarFondoGameBoy1(iteracion1) {
   gameStatusActive = true;
   setTimeout(() => {
     pantallaGameBoy.style.backgroundImage = "";
+    tvScreen.style.backgroundColor = "grey";
     juego.style.display = "block";
     pantallaGameBoy.style.backgroundSize = "330px 320px";
   }, "4000");
@@ -140,6 +144,7 @@ function alternarFondoGameBoy2(iteracion2) {
   gameStatusActive = true;
   setTimeout(() => {
     pantallaGameBoy.style.backgroundImage = "";
+    tvScreen.style.backgroundColor = "grey";
     juego.style.display = "block";
     pantallaGameBoy.style.backgroundSize = "330px 320px";
   }, "4000");
@@ -162,6 +167,7 @@ function alternarFondoGameBoy3(iteracion3) {
   gameStatusActive = true;
   setTimeout(() => {
     pantallaGameBoy.style.backgroundImage = "";
+    tvScreen.style.backgroundColor = "grey";
     juego.style.display = "block";
     pantallaGameBoy.style.backgroundSize = "330px 320px";
   }, "4000");
@@ -181,6 +187,8 @@ function cerrarjuegos() {
   juego.style.display = "none";
   juego2.style.display = "none";
 }
+
+
 function encenderconsolas() {
   
   gameStatusActive = false;
@@ -205,7 +213,8 @@ function encenderconsolas() {
   }, "2000");
 }
 function apagarconsolas() {
-  somethingInScreen = false;
+  juego.style.display = "none";
+  juego2.style.display = "none";
   gameStatusActive = false;
   ledGameBoy.style.backgroundColor = "black";
   gameBoyEncendida = false;
@@ -213,34 +222,18 @@ function apagarconsolas() {
   pantallaGameBoy.style.backgroundImage = "";
   pantallaGameBoy.style.backgroundColor = "#84d07d";
   tvScreen.style.backgroundImage = "";
-  tvScreen.style.backgroundColor = "#100f0f";
-  ledEncendido.style.backgroundColor = "Gray";
+  tvScreen.style.backgroundColor = "grey";
+  ledEncendido.style.backgroundColor = "Grey";
+  
   
 }
-
-//encendido y apgado TV
-
-botonEncenderTv.addEventListener("click", (e) => {
-  if (e.target.id === "btn-power-tv") {
-    if (tvEncendida == false) {
-      tvScreen.style.backgroundImage = "";
-      tvScreen.style.backgroundColor = "grey";
-      tvEncendida = true;
-    }
-    }else if(tvEncendida == true){
-      tvScreen.style.backgroundImage = "";
-      tvScreen.style.backgroundColor = "#100f0f";
-      tvEncendida = false;
-    }
-  }
-);
-
-//inicio y reset de las consolas
-
-//este boton solo ha de funcionar si la consola esta encendida
 botonReset.addEventListener("click", (e) => {
   if (e.target.id === "resetNES") {
     somethingInScreen = true;
+    juego.style.display = "none";
+    juego2.style.display = "none";
+    tvScreen.style.backgroundImage = "";
+    tvScreen.style.backgroundColor = "grey";
     if(nesEncendida === true){
     cerrarjuegos();
     gameStatusActive = false;
@@ -265,16 +258,35 @@ botonReset.addEventListener("click", (e) => {
   }
 }}
     );
+//encendido y apgado TV
+
+botonEncenderTv.addEventListener("click", (e) => {
+  if (e.target.id === "btn-power-tv") {
+    if (tvEncendida == false) {
+      tvScreen.style.backgroundImage = "";
+      tvScreen.style.backgroundColor = "grey";
+      tvEncendida = true;
+    }
+    }else if(tvEncendida == true || tvScreen.style.backgroundColor == "grey"){
+      tvScreen.style.backgroundImage = "";
+      tvScreen.style.backgroundColor = "#100f0f";
+      tvEncendida = false;
+    }
+  }
+);
+
+
+
+//este boton solo ha de funcionar si la consola esta encendida
+
 
 botonEncenderNes.addEventListener("click", (e) => {
   if (e.target.id === "powerNES") {
-    if(nesEncendida == false && tvEncendida == true){
-      encenderconsolas()
-    }else if (nesEncendida == false && tvEncendida == false){
-      encenderconsolas()
-      apagateles.style.backgroundColor = "#100f0f";
-      apagateles.style.display = "block";
-     
+    gameStatusActive = false;
+    if(nesEncendida == false && gameBoyEncendida == false){
+      encenderconsolas();
+    }else if (nesEncendida == true && gameBoyEncendida == true){
+      apagarconsolas();
 
   }
 }});
