@@ -24,6 +24,9 @@ let gameBoyEncendida = false;
 let gameSelector = 0;
 let contadorCambios = 0;
 let gameStatusActive = false;
+let memoryStatus = "url('Resources/Juego1.png')";
+let memoryOcupada = true;
+
 const imagen1 = "url('Resources/Juego1.png')";
 const imagen2 = "url('Resources/Juego1-invert.png')";
 const imagen3 = "url('Resources/Juego2.png')";
@@ -58,8 +61,6 @@ function alternarFondo1(iteracion1) {
     }, 100);
   }, 100);
 }
-
-
 function alternarFondo2(iteracion2) {
   if (iteracion2 >= 9) {
     tvScreen.style.backgroundImage = "url('Resources/FraglanSouls.png')";
@@ -177,9 +178,14 @@ function alternarFondoGameBoy3(iteracion3) {
   }, 100);
 }
 
+// resto de funciones
+
 function cerrarjuegos(){
   juego.style.display = "none";
   juego2.style.display = "none";
+}
+function apagarconsolas(){
+
 }
 
 //encendido y apgado TV
@@ -200,6 +206,7 @@ botonEncenderTv.addEventListener("click", (e) => {
 
 //inicio y reset de las consolas
 
+//este boton solo ha de funcionar si la consola esta encendida
 botonReset.addEventListener("click", (e) => {
   if (e.target.id === "resetNES") {
     cerrarjuegos()
@@ -225,6 +232,7 @@ botonReset.addEventListener("click", (e) => {
     }, "200");
   }
 });
+
 
 botonEncenderNes.addEventListener("click", (e) => {
   if (e.target.id === "powerNES") {
@@ -451,10 +459,13 @@ botonAbajoGameboy.addEventListener("click", (e) => {
   }
 });
 
+//funcionamiento botones start
+
 botonStart.addEventListener("click", (e) => {
-  if (e.target.id === "botonStart" && tvEncendida == true && gameSelector === 0 && !gameStatusActive) {
+  if (e.target.id === "botonStart" && gameSelector === 0 && !gameStatusActive) {
     alternarFondo1(0);
     alternarFondoGameBoy1(0);
+    gameStatusActive = true;
   } else if (
     e.target.id === "botonStart" &&
     gameSelector === 1 &&
@@ -462,6 +473,7 @@ botonStart.addEventListener("click", (e) => {
   ) {
     alternarFondo2(0);
     alternarFondoGameBoy2(0);
+    gameStatusActive = true;
   } else if (
     e.target.id === "botonStart" &&
     gameSelector === 2 &&
@@ -469,6 +481,7 @@ botonStart.addEventListener("click", (e) => {
   ) {
     alternarFondo3(0);
     alternarFondoGameBoy3(0);
+    gameStatusActive = true;
   }
 });
 
@@ -476,6 +489,7 @@ botonStartGameboy.addEventListener("click", (e) => {
   if (e.target.id === "start" && gameSelector === 0 && !gameStatusActive) {
     alternarFondo1(0);
     alternarFondoGameBoy1(0);
+    gameStatusActive = true;
   } else if (
     e.target.id === "start" &&
     gameSelector === 1 &&
@@ -483,6 +497,7 @@ botonStartGameboy.addEventListener("click", (e) => {
   ) {
     alternarFondo3(0);
     alternarFondoGameBoy2(0);
+    gameStatusActive = true;
   } else if (
     e.target.id === "start" &&
     gameSelector === 2 &&
@@ -490,5 +505,6 @@ botonStartGameboy.addEventListener("click", (e) => {
   ) {
     alternarFondo3(0);
     alternarFondoGameBoy3(0);
+    gameStatusActive = true;
   }
 });
