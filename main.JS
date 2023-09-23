@@ -180,12 +180,42 @@ function alternarFondoGameBoy3(iteracion3) {
 
 // resto de funciones
 
-function cerrarjuegos(){
+function cerrarjuegos() {
   juego.style.display = "none";
   juego2.style.display = "none";
 }
-function apagarconsolas(){
-
+function encenderconsolas() {
+  gameStatusActive = false;
+  ledGameBoy.style.backgroundColor = "Red";
+  gameBoyEncendida = true;
+  nesEncendida = true;
+  pantallaGameBoy.style.backgroundImage = "url('Resources/nintendo.png')";
+  pantallaGameBoy.style.backgroundSize = "330px 320px";
+  setTimeout(() => {
+    pantallaGameBoy.style.backgroundImage = "url('Resources/Juego1.png')";
+    pantallaGameBoy.style.backgroundSize = "330px 320px";
+  }, "2000");
+  ledEncendido.style.backgroundColor = "Red";
+  tvScreen.style.background = "";
+  tvScreen.style.backgroundImage = "url('Resources/nintendo.png')";
+  tvScreen.style.backgroundSize = "820px 500px";
+  setTimeout(() => {
+    tvScreen.style.backgroundImage = "url('Resources/Juego1.png')";
+    tvScreen.style.backgroundSize = "820px 500px";
+    juego.style.display = "block";
+  }, "2000");
+}
+function apagarconsolas() {
+  gameStatusActive = false;
+  ledGameBoy.style.backgroundColor = "black";
+  gameBoyEncendida = false;
+  nesEncendida= false;
+  pantallaGameBoy.style.backgroundImage = "";
+  pantallaGameBoy.style.backgroundColor = "#84d07d";
+  tvScreen.style.backgroundImage = "";
+  tvScreen.style.backgroundColor = "#100f0f";
+  ledEncendido.style.backgroundColor = "Gray";
+  
 }
 
 //encendido y apgado TV
@@ -199,7 +229,7 @@ botonEncenderTv.addEventListener("click", (e) => {
       tvScreen.style.backgroundImage = "";
       tvScreen.style.backgroundColor = "#100f0f";
       tvEncendida = false;
-      cerrarjuegos()
+      cerrarjuegos();
     }
   }
 });
@@ -209,19 +239,20 @@ botonEncenderTv.addEventListener("click", (e) => {
 //este boton solo ha de funcionar si la consola esta encendida
 botonReset.addEventListener("click", (e) => {
   if (e.target.id === "resetNES") {
-    cerrarjuegos()
+    if(nesEncendida === true){
+    cerrarjuegos();
+  
     gameStatusActive = false;
     gameSelector = 0;
     tvScreen.style.background = "";
     setTimeout(() => {
       tvScreen.style.backgroundColor = "Black";
       ledEncendido.style.backgroundColor = "grey";
-      
+
       setTimeout(() => {
         tvScreen.style.backgroundImage = "url('Resources/nintendo.png')";
         tvScreen.style.backgroundSize = "820px 500px";
         ledEncendido.style.backgroundColor = "Red";
-        
 
         setTimeout(() => {
           tvScreen.style.backgroundImage = "url('Resources/Juego1.png')";
@@ -231,82 +262,18 @@ botonReset.addEventListener("click", (e) => {
       }, "200");
     }, "200");
   }
-});
-
+}}
+    );
 
 botonEncenderNes.addEventListener("click", (e) => {
   if (e.target.id === "powerNES") {
-    gameStatusActive = false;
-    if (ledEncendido.style.backgroundColor != "Red") {
-      ledEncendido.style.backgroundColor = "Red";
-    } else if (ledEncendido.style.backgroundColor === "Red") {
-      ledEncendido.style.backgroundColor = "Grey";
-      
-      gameStatusActive = false;
-      cerrarjuegos()
+    if(!nesEncendida){
+      encenderconsolas()
+    }else if (nesEncendida){
+      cerrarjuegos();
+      apagarconsolas();
     }
 
-    if (!nesEncendida && tvEncendida) {
-      gameStatusActive = false;
-
-      //cuando enciendes la consola, la gameboy se mantiene encendida al hace responsive
-
-      if (!gameBoyEncendida) {
-        
-        ledGameBoy.style.backgroundColor = "red";
-        gameBoyEncendida = true;
-        pantallaGameBoy.style.backgroundImage = "url('Resources/nintendo.png')";
-        pantallaGameBoy.style.backgroundSize = "330px 320px";
-        setTimeout(() => {
-          pantallaGameBoy.style.backgroundImage = "url('Resources/Juego1.png')";
-          pantallaGameBoy.style.backgroundSize = "330px 320px";
-          juego.style.display = "block";
-        }, "2000");
-      } else if (gameBoyEncendida) {
-        cerrarjuegos()
-        ledGameBoy.style.backgroundColor = "black";
-        gameBoyEncendida = false;
-        pantallaGameBoy.style.backgroundImage = "";
-        pantallaGameBoy.style.backgroundColor = "#84d07d";
-      }
-
-      tvScreen.style.background = "";
-      tvScreen.style.backgroundImage = "url('Resources/nintendo.png')";
-      tvScreen.style.backgroundSize = "820px 500px";
-      
-
-      setTimeout(() => {
-        gameStatusActive = false;
-        tvScreen.style.backgroundImage = "url('Resources/Juego1.png')";
-        tvScreen.style.backgroundSize = "820px 500px";
-        
-      }, "2000");
-
-      nesEncendida = true;
-    } else if (!tvEncendida) {
-      cerrarjuegos()
-      gameStatusActive = false;
-      tvScreen.style.backgroundImage = "";
-      tvScreen.style.backgroundColor = "#100f0f";
-      nesEncendida = false;
-      
-    } else {
-      cerrarjuegos()
-      gameStatusActive = false;
-      tvScreen.style.backgroundImage = "";
-      tvScreen.style.backgroundColor = "Grey";
-      nesEncendida = false;
-
-
-      //cuando apagas la nes, apagas la gameboy en responsive
-      if (gameBoyEncendida) {
-        cerrarjuegos()
-        ledGameBoy.style.backgroundColor = "black";
-        gameBoyEncendida = false;
-        pantallaGameBoy.style.backgroundImage = "";
-        pantallaGameBoy.style.backgroundColor = "#84d07d";
-      }
-    }
   }
 });
 
@@ -315,44 +282,11 @@ botonEncenderGameBoy.addEventListener("click", (e) => {
     gameStatusActive = false;
 
     if (!gameBoyEncendida) {
-      gameStatusActive = false;
-      ledGameBoy.style.backgroundColor = "Red";
-      gameBoyEncendida = true;
-
-      pantallaGameBoy.style.backgroundImage = "url('Resources/nintendo.png')";
-      pantallaGameBoy.style.backgroundSize = "330px 320px";
-      //cuando enciendes la gameboy , enciendes la nintendo en responsive
-      ledEncendido.style.backgroundColor = "Red";
-      tvScreen.style.background = "";
-      tvScreen.style.backgroundImage = "url('Resources/nintendo.png')";
-      tvScreen.style.backgroundSize = "820px 500px";
+      encenderconsolas()
       
-      setTimeout(() => {
-        tvScreen.style.backgroundImage = "url('Resources/Juego1.png')";
-        tvScreen.style.backgroundSize = "820px 500px";
-        juego.style.display = "block";
-      }, "2000");
-
-      setTimeout(() => {
-        pantallaGameBoy.style.backgroundImage = "url('Resources/Juego1.png')";
-        pantallaGameBoy.style.backgroundSize = "330px 320px";
-        
-      }, "2000");
-      //cuando apagas la gameboy, apagas la nintendo en responsive y la tele se queda encendida para poder apagarla
     } else if (gameBoyEncendida) {
-      cerrarjuegos()
-      gameStatusActive = false;
-      
-      ledGameBoy.style.backgroundColor = "black";
-      gameBoyEncendida = false;
-      pantallaGameBoy.style.backgroundImage = "";
-      pantallaGameBoy.style.backgroundColor = "#84d07d";
-      tvScreen.style.backgroundImage = "";
-      tvScreen.style.backgroundColor = "#100f0f";
-      ledEncendido.style.backgroundColor = "Gray";
-      tvScreen.style.backgroundImage = "";
-      tvScreen.style.backgroundColor = "Grey";
-      tvEncendida = true;
+      cerrarjuegos();
+      apagarconsolas();
     }
   }
 });
