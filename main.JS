@@ -58,6 +58,8 @@ function alternarFondo1(iteracion1) {
     }, 100);
   }, 100);
 }
+
+
 function alternarFondo2(iteracion2) {
   if (iteracion2 >= 9) {
     tvScreen.style.backgroundImage = "url('Resources/FraglanSouls.png')";
@@ -175,6 +177,11 @@ function alternarFondoGameBoy3(iteracion3) {
   }, 100);
 }
 
+function cerrarjuegos(){
+  juego.style.display = "none";
+  juego2.style.display = "none";
+}
+
 //encendido y apgado TV
 
 botonEncenderTv.addEventListener("click", (e) => {
@@ -186,6 +193,7 @@ botonEncenderTv.addEventListener("click", (e) => {
       tvScreen.style.backgroundImage = "";
       tvScreen.style.backgroundColor = "#100f0f";
       tvEncendida = false;
+      cerrarjuegos()
     }
   }
 });
@@ -194,6 +202,7 @@ botonEncenderTv.addEventListener("click", (e) => {
 
 botonReset.addEventListener("click", (e) => {
   if (e.target.id === "resetNES") {
+    cerrarjuegos()
     gameStatusActive = false;
     gameSelector = 0;
     tvScreen.style.background = "";
@@ -226,6 +235,7 @@ botonEncenderNes.addEventListener("click", (e) => {
       ledEncendido.style.backgroundColor = "Grey";
       
       gameStatusActive = false;
+      cerrarjuegos()
     }
 
     if (!nesEncendida && tvEncendida) {
@@ -245,7 +255,7 @@ botonEncenderNes.addEventListener("click", (e) => {
           juego.style.display = "block";
         }, "2000");
       } else if (gameBoyEncendida) {
-        console.log("entraapagar");
+        cerrarjuegos()
         ledGameBoy.style.backgroundColor = "black";
         gameBoyEncendida = false;
         pantallaGameBoy.style.backgroundImage = "";
@@ -266,12 +276,14 @@ botonEncenderNes.addEventListener("click", (e) => {
 
       nesEncendida = true;
     } else if (!tvEncendida) {
+      cerrarjuegos()
       gameStatusActive = false;
       tvScreen.style.backgroundImage = "";
       tvScreen.style.backgroundColor = "#100f0f";
       nesEncendida = false;
       
     } else {
+      cerrarjuegos()
       gameStatusActive = false;
       tvScreen.style.backgroundImage = "";
       tvScreen.style.backgroundColor = "Grey";
@@ -280,7 +292,7 @@ botonEncenderNes.addEventListener("click", (e) => {
 
       //cuando apagas la nes, apagas la gameboy en responsive
       if (gameBoyEncendida) {
-        console.log("entraapagar");
+        cerrarjuegos()
         ledGameBoy.style.backgroundColor = "black";
         gameBoyEncendida = false;
         pantallaGameBoy.style.backgroundImage = "";
@@ -320,6 +332,7 @@ botonEncenderGameBoy.addEventListener("click", (e) => {
       }, "2000");
       //cuando apagas la gameboy, apagas la nintendo en responsive y la tele se queda encendida para poder apagarla
     } else if (gameBoyEncendida) {
+      cerrarjuegos()
       gameStatusActive = false;
       
       ledGameBoy.style.backgroundColor = "black";

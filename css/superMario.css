@@ -114,6 +114,20 @@ html, body{
    background-position-y: 25px;
 }
 
+.mario-game #mario {
+   position: absolute;
+   left: 60px;
+   bottom: 40px;
+   height: 100px;
+   width: 71px;
+   transition: left 0.1s linear;
+   z-index: 3;
+   background: url(https://itc.yananas.com/git/mario/assets/mario.png) left center;
+   background-size: 1200px;
+   background-repeat: no-repeat;
+   background-position-y: 25px;
+}
+
 #mario.jumping {
    animation: jump 1s ease 0s  infinite normal ;
    /*animation-fill-mode: forwards;*/
