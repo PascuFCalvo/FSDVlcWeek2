@@ -115,7 +115,7 @@ function alternarFondoGameBoy1(iteracion1) {
   gameStatusActive = true;
   setTimeout(() => {
     pantallaGameBoy.style.backgroundImage = "";
-    juegoGB.style.display = "block";
+    juego.style.display = "block";
     pantallaGameBoy.style.backgroundSize = "330px 320px";
   }, "4000");
 
@@ -189,11 +189,14 @@ function encenderconsolas() {
   ledGameBoy.style.backgroundColor = "Red";
   gameBoyEncendida = true;
   nesEncendida = true;
+  pantallaGameBoy.style.background = "";
   pantallaGameBoy.style.backgroundImage = "url('Resources/nintendo.png')";
   pantallaGameBoy.style.backgroundSize = "330px 320px";
   setTimeout(() => {
     pantallaGameBoy.style.backgroundImage = "url('Resources/Juego1.png')";
     pantallaGameBoy.style.backgroundSize = "330px 320px";
+    
+    
   }, "2000");
   ledEncendido.style.backgroundColor = "Red";
   tvScreen.style.background = "";
@@ -202,7 +205,7 @@ function encenderconsolas() {
   setTimeout(() => {
     tvScreen.style.backgroundImage = "url('Resources/Juego1.png')";
     tvScreen.style.backgroundSize = "820px 500px";
-    juego.style.display = "block";
+    
   }, "2000");
 }
 function apagarconsolas() {
@@ -241,7 +244,6 @@ botonReset.addEventListener("click", (e) => {
   if (e.target.id === "resetNES") {
     if(nesEncendida === true){
     cerrarjuegos();
-  
     gameStatusActive = false;
     gameSelector = 0;
     tvScreen.style.background = "";
