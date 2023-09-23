@@ -260,7 +260,7 @@ body {
     top: -9px;
 }
 
-#arribaGB {
+#arriba {
     position: absolute;
     display: flex;
     font-size: 2.5em;
@@ -276,15 +276,15 @@ body {
     box-shadow: 3px 0px 0px #272929(0, 0, 0, 0.3);
 }
 
-#arribaGB p {
+#arriba p {
     margin: auto;
     position: relative;
     top: -12px;
 }
-#arribaGB:active{
+#arriba:active{
     opacity: 70%;
 }
-#abajoGB:active{
+#abajo:active{
     opacity: 70%;
 }
 #izq:active{
@@ -306,7 +306,7 @@ body {
     opacity: 70%;
 }
 
-#abajoGB {
+#abajo {
     position: absolute;
     display: flex;
     font-size: 2.5em;
@@ -322,7 +322,7 @@ body {
     box-shadow: 3px 1px 1px #272929(0, 0, 0, 0.3);
 }
 
-#abajoGB p {
+#abajo p {
     margin: auto;
     position: relative;
     top: -12px;

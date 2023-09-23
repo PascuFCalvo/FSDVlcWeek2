@@ -27,7 +27,30 @@ html, body{
    height: 480px;
    width: 800px;
 }
+
+.mario-game-GB {
+   position: absolute;
+   top: -160px;
+   left: -165px;
+   right: 0;
+   bottom: 0;
+   font-family: sans-serif;
+   height: 320px;
+   width: 330px;
+}
+
+
 .mario-game #background {
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background: #6b88ff;
+   z-index: 1;
+}
+
+.mario-game-GB #background {
    position: absolute;
    top: 0;
    left: 0;
@@ -68,10 +91,10 @@ html, body{
    z-index: 1;
 }
 
-.mario-game #mario {
+.mario-game-GB #mario {
    position: absolute;
-   left: 100px;
-   bottom: 65px;
+   left: 20px;
+   bottom: 40px;
    height: 72px;
    width: 71px;
    transition: left 0.1s linear;
@@ -189,6 +212,21 @@ html, body{
    z-index: 10;
    font-family: 'Press Start 2P', cursive;
    font-size: 180%;
+   color: white;
+
+   padding-left: 0px;
+   padding-right: 50px;
+   padding-top: 10px;
+   line-height: 0.2;
+}
+
+.scorebar-GB{    
+   position: absolute;
+   height: 100px;
+   width:85%;    
+   z-index: 10;
+   font-family: 'Press Start 2P', cursive;
+   font-size: 100%;
    color: white;
 
    padding-left: 0px;

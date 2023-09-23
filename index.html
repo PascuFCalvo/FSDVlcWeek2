@@ -40,7 +40,29 @@
                 <p>POWER</p>
             </div>
             <div id = "pantallaGameBoy" class="pantalla">
-                <div id ="pantallaInterior"></div>
+                <div id="canvas-container">
+                    <div id = "supermario">
+                        <div class="mario-game-GB" id="containerGameboy">
+                            <div class="scorebar-GB">
+                                <p><span class="topline-mario">VILLE</span>
+                                    <span class="topline-world">BENI</span>
+                                    <span class="topline-time">TIME</span>
+                                    <span id="bottomline-score">000000</span>
+                                    <span id="bottomline-coin"><img src="/Resources/villemoneda.png" height="40px"> x <span id="updateCoins">00</span></span>
+                                    <span class="bottomline-world">1 - 1</span>
+                                    <span class="bottomline-time" id="timeLeft">000</span>
+                                </p>
+                            </div>
+                            <div id="background"></div>
+                            <div id="foreground" class="layer foreground"></div>
+                            <div id="items" class="layer"><div id="block"> <img src="/Resources/villemoneda.png" alt="" id="coin"/></div></div>
+                            <div id="plants" class="layer plants"></div>
+                            <div id="moutains" class="layer moutains"></div>
+                            <div id="clouds" class="layer clouds"></div>
+                            <div id="mario" class="lookingRight"></div>
+                        </div>
+                    </div>
+              </div>
                 
                 <span class=" color">GAMEBOY</span>
                 <span class="c">C</span>
@@ -58,15 +80,15 @@
                 <div id="centro">
 
                 </div>
-                <div id="arribaGB">
-                    <p>⮝</p>
+                <div id="arriba">
+                    <p id ="arribaGB">⮝</p>
 
                 </div>
                 <div id="der">
                     <p>⮞</p>
                 </div>
-                <div id="abajoGB">
-                    <p>⮟</p>
+                <div id="abajo">
+                    <p id = "abajoGB">⮟</p>
                 </div>
                 <div id="izq">
                     <p>⮜</p>
@@ -136,23 +158,6 @@
                                 <div id="mario" class="lookingRight"></div>
                             </div>
                         </div>
-                    
-                    <!--<div id="carouselExampleControls" class="printScreenNES carousel slide" data-bs-ride="carousel"
-                    data-bs-interval="800">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img class="imgmenuNES d-block w-100 " src="./Resources/Juego1.png" alt="First slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="imgmenuNES d-block w-100" src="./Resources/Juego2.png" alt="Second slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="imgmenuNES d-block w-100" src="./Resources/Juego3.png" alt="Third slide">
-                        </div>
-                    </div>
-
-                    </div>-->
-                    
                   </div>
                 </div>
               </div>
