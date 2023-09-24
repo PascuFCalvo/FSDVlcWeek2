@@ -1,3 +1,5 @@
+//elementos traidos para asignarles eventos
+
 let botonEncenderTv = document.getElementById("btn-power-tv");
 let tvScreen = document.getElementById("monitorscreen");
 let botonEncenderNes = document.getElementById("powerNES");
@@ -8,7 +10,6 @@ let botonStart = document.getElementById("botonStart");
 let ledEncendido = document.getElementById("ledEncendido");
 let juego = document.getElementById("supermario");
 let juego2 = document.getElementById("supermario2");
-
 let botonEncenderGameBoy = document.getElementById("powerGameBoy");
 let botonArribaGameboy = document.getElementById("arribaGB");
 let botonAbajoGameboy = document.getElementById("abajoGB");
@@ -18,6 +19,8 @@ let ledGameBoy = document.getElementById("led_on");
 let encenderTV = document.getElementById("apagarTV");
 var sonidoBoton = new Audio("Resources/sonidoBoton.mp3");
 
+//variables y constantes 
+
 let maximasrepeticiones = 10;
 let tvEncendida = false;
 let nesEncendida = false;
@@ -25,7 +28,6 @@ let gameBoyEncendida = false;
 let gameSelector = 0;
 let contadorCambios = 0;
 let gameStatusActive = false;
-
 const imagen1 = "url('Resources/Juego1.png')";
 const imagen2 = "url('Resources/Juego1-invert.png')";
 const imagen3 = "url('Resources/Juego2.png')";
@@ -33,145 +35,230 @@ const imagen4 = "url('Resources/Juego2-invert.png')";
 const imagen5 = "url('Resources/Juego3.png')";
 const imagen6 = "url('Resources/Juego3-invert.png')";
 
-let imagenActual = imagen1;
+let iteracion = 0;
 
-//funciones que simulan la carga del juego
+// funcion de alternarFondo que simula la carga de juego refactorizada (dejo las otras en comentarios para fines didacticos)
+function alternarFondoRefactorizada(iteracion,gameSelector){
+  switch(gameSelector){
+    case 0:
+      if (iteracion >= 9) {
+        tvScreen.style.backgroundImage = "url('Resources/VillesAdventures.png')";
+        pantallaGameBoy.style.backgroundImage = "url('Resources/VillesAdventures.png')";
+        return;
+      }
+    
+      const imagenA = iteracion % 2 === 0 ? imagen1 : imagen2;
+      tvScreen.style.backgroundImage = imagenA;
+      pantallaGameBoy.style.backgroundImage = imagenA;
+      gameStatusActive = true;
+      setTimeout(() => {
+        tvScreen.style.backgroundImage = "";
+        tvScreen.style.backgroundColor = "grey";
+        juego2.style.display = "block";
+        tvScreen.style.backgroundSize = "820px 500px";
+        pantallaGameBoy.style.backgroundImage = "";
+        juego.style.display = "block";
+        pantallaGameBoy.style.backgroundSize = "330px 320px";
+      }, 4000);
+    
+      setTimeout(function () {
+        setTimeout(function () {
+          alternarFondoRefactorizada(iteracion + 1, gameSelector);
+        }, 100);
+      }, 100);
+      break;
+      
+    case 1:
+      if (iteracion >= 9) {
+        tvScreen.style.backgroundImage = "url('Resources/FraglanSouls.png')";
+        pantallaGameBoy.style.backgroundImage = "url('Resources/FraglanSouls.png')";
+        return;
+      }
+    
+      const imagenB = iteracion % 2 === 0 ? imagen3 : imagen4;
+      tvScreen.style.backgroundImage = imagenB;
+      pantallaGameBoy.style.backgroundImage = imagenB;
+      gameStatusActive = true;
+      setTimeout(() => {
+        tvScreen.style.backgroundImage = "";
+        tvScreen.style.backgroundColor = "grey";
+        juego2.style.display = "block";
+        tvScreen.style.backgroundSize = "820px 500px";
+        pantallaGameBoy.style.backgroundImage = "";
+        juego.style.display = "block";
+        pantallaGameBoy.style.backgroundSize = "330px 320px";
+      }, 4000);
+    
+      setTimeout(function () {
+        setTimeout(function () {
+          alternarFondoRefactorizada(iteracion + 1, gameSelector);
+        }, 100);
+      }, 100);
+      break;
 
-//estas 6 funciones han de ser refactorizadas a 1 sola
-
-function alternarFondo1(iteracion1) {
-  if (iteracion1 >= 9) {
-    tvScreen.style.backgroundImage = "url('Resources/VillesAdventures.png')";
-    return;
+    case 2:
+      if (iteracion >= 9) {
+        tvScreen.style.backgroundImage = "url('Resources/RatsRevenge.png')";
+        pantallaGameBoy.style.backgroundImage = "url('Resources/RatsRevenge.png')";
+        return;
+      }
+    
+      const imagenC = iteracion % 2 === 0 ? imagen5 : imagen6;
+      tvScreen.style.backgroundImage = imagenC;
+      pantallaGameBoy.style.backgroundImage = imagenC;
+      gameStatusActive = true;
+      setTimeout(() => {
+        tvScreen.style.backgroundImage = "";
+        tvScreen.style.backgroundColor = "grey";
+        juego2.style.display = "block";
+        tvScreen.style.backgroundSize = "820px 500px";
+        pantallaGameBoy.style.backgroundImage = "";
+        juego.style.display = "block";
+        pantallaGameBoy.style.backgroundSize = "330px 320px";
+      }, 4000);
+    
+      setTimeout(function () {
+        setTimeout(function () {
+          alternarFondoRefactorizada(iteracion + 1, gameSelector);
+        }, 100);
+      }, 100);
+      break;
+    
   }
-
-  const imagen = iteracion1 % 2 === 0 ? imagen1 : imagen2;
-  tvScreen.style.backgroundImage = imagen;
-  gameStatusActive = true;
-  setTimeout(() => {
-    tvScreen.style.backgroundImage = "";
-    tvScreen.style.backgroundColor = "grey";
-    juego2.style.display = "block";
-    tvScreen.style.backgroundSize = "820px 500px";
-  }, "4000");
-
-  setTimeout(function () {
-    setTimeout(function () {
-      alternarFondo1(iteracion1 + 1);
-    }, 100);
-  }, 100);
 }
-function alternarFondo2(iteracion2) {
-  if (iteracion2 >= 9) {
-    tvScreen.style.backgroundImage = "url('Resources/FraglanSouls.png')";
-    return;
-  }
+// function alternarFondo1(iteracion1) {
+//   if (iteracion1 >= 9) {
+//     tvScreen.style.backgroundImage = "url('Resources/VillesAdventures.png')";
+//     return;
+//   }
 
-  const imagen = iteracion2 % 2 === 0 ? imagen3 : imagen4;
-  tvScreen.style.backgroundImage = imagen;
-  gameStatusActive = true;
-  setTimeout(() => {
-    tvScreen.style.backgroundImage = "";
-    tvScreen.style.backgroundColor = "grey";
-    juego2.style.display = "block";
-    tvScreen.style.backgroundSize = "820px 500px";
-  }, "4000");
+//   const imagen = iteracion1 % 2 === 0 ? imagen1 : imagen2;
+//   tvScreen.style.backgroundImage = imagen;
+//   gameStatusActive = true;
+//   setTimeout(() => {
+//     tvScreen.style.backgroundImage = "";
+//     tvScreen.style.backgroundColor = "grey";
+//     juego2.style.display = "block";
+//     tvScreen.style.backgroundSize = "820px 500px";
+//   }, "4000");
 
-  setTimeout(function () {
-    setTimeout(function () {
-      alternarFondo2(iteracion2 + 1);
-    }, 100);
-  }, 100);
-}
-function alternarFondo3(iteracion3) {
-  if (iteracion3 >= 9) {
-    tvScreen.style.backgroundImage = "url('Resources/RatsRevenge.png')";
-    return;
-  }
+//   setTimeout(function () {
+//     setTimeout(function () {
+//       alternarFondo1(iteracion1 + 1);
+//     }, 100);
+//   }, 100);
+// }
+// function alternarFondo2(iteracion2) {
+//   if (iteracion2 >= 9) {
+//     tvScreen.style.backgroundImage = "url('Resources/FraglanSouls.png')";
+//     return;
+//   }
 
-  const imagen = iteracion3 % 2 === 0 ? imagen5 : imagen6;
-  tvScreen.style.backgroundImage = imagen;
-  gameStatusActive = true;
-  setTimeout(() => {
-    tvScreen.style.backgroundImage = "";
-    tvScreen.style.backgroundColor = "grey";
-    juego2.style.display = "block";
-    tvScreen.style.backgroundSize = "820px 500px";
-  }, "4000");
+//   const imagen = iteracion2 % 2 === 0 ? imagen3 : imagen4;
+//   tvScreen.style.backgroundImage = imagen;
+//   gameStatusActive = true;
+//   setTimeout(() => {
+//     tvScreen.style.backgroundImage = "";
+//     tvScreen.style.backgroundColor = "grey";
+//     juego2.style.display = "block";
+//     tvScreen.style.backgroundSize = "820px 500px";
+//   }, "4000");
 
-  setTimeout(function () {
-    setTimeout(function () {
-      alternarFondo3(iteracion3 + 1);
-    }, 100);
-  }, 100);
-}
-function alternarFondoGameBoy1(iteracion1) {
-  if (iteracion1 >= 9) {
-    pantallaGameBoy.style.backgroundImage =
-      "url('Resources/VillesAdventures.png')";
-    return;
-  }
+//   setTimeout(function () {
+//     setTimeout(function () {
+//       alternarFondo2(iteracion2 + 1);
+//     }, 100);
+//   }, 100);
+// }
+// function alternarFondo3(iteracion3) {
+//   if (iteracion3 >= 9) {
+//     tvScreen.style.backgroundImage = "url('Resources/RatsRevenge.png')";
+//     return;
+//   }
 
-  const imagen = iteracion1 % 2 === 0 ? imagen1 : imagen2;
-  pantallaGameBoy.style.backgroundImage = imagen;
-  gameStatusActive = true;
-  setTimeout(() => {
-    pantallaGameBoy.style.backgroundImage = "";
-    tvScreen.style.backgroundColor = "grey";
-    juego.style.display = "block";
-    pantallaGameBoy.style.backgroundSize = "330px 320px";
-  }, "4000");
+//   const imagen = iteracion3 % 2 === 0 ? imagen5 : imagen6;
+//   tvScreen.style.backgroundImage = imagen;
+//   gameStatusActive = true;
+//   setTimeout(() => {
+//     tvScreen.style.backgroundImage = "";
+//     tvScreen.style.backgroundColor = "grey";
+//     juego2.style.display = "block";
+//     tvScreen.style.backgroundSize = "820px 500px";
+//   }, "4000");
 
-  setTimeout(function () {
-    setTimeout(function () {
-      alternarFondoGameBoy1(iteracion1 + 1);
-    }, 100);
-  }, 100);
-}
-function alternarFondoGameBoy2(iteracion2) {
-  if (iteracion2 >= 9) {
-    pantallaGameBoy.style.backgroundImage = "url('Resources/FraglanSouls.png')";
-    return;
-  }
+//   setTimeout(function () {
+//     setTimeout(function () {
+//       alternarFondo3(iteracion3 + 1);
+//     }, 100);
+//   }, 100);
+// }
+// function alternarFondoGameBoy1(iteracion1) {
+//   if (iteracion1 >= 9) {
+//     pantallaGameBoy.style.backgroundImage =
+//       "url('Resources/VillesAdventures.png')";
+//     return;
+//   }
 
-  const imagen = iteracion2 % 2 === 0 ? imagen3 : imagen4;
-  pantallaGameBoy.style.backgroundImage = imagen;
-  gameStatusActive = true;
-  setTimeout(() => {
-    pantallaGameBoy.style.backgroundImage = "";
-    tvScreen.style.backgroundColor = "grey";
-    juego.style.display = "block";
-    pantallaGameBoy.style.backgroundSize = "330px 320px";
-  }, "4000");
+//   const imagen = iteracion1 % 2 === 0 ? imagen1 : imagen2;
+//   pantallaGameBoy.style.backgroundImage = imagen;
+//   gameStatusActive = true;
+//   setTimeout(() => {
+//     pantallaGameBoy.style.backgroundImage = "";
+//     tvScreen.style.backgroundColor = "grey";
+//     juego.style.display = "block";
+//     pantallaGameBoy.style.backgroundSize = "330px 320px";
+//   }, "4000");
 
-  setTimeout(function () {
-    setTimeout(function () {
-      alternarFondoGameBoy2(iteracion2 + 1);
-    }, 100);
-  }, 100);
-}
-function alternarFondoGameBoy3(iteracion3) {
-  if (iteracion3 >= 9) {
-    pantallaGameBoy.style.backgroundImage = "url('Resources/RatsRevenge.png')";
-    return;
-  }
+//   setTimeout(function () {
+//     setTimeout(function () {
+//       alternarFondoGameBoy1(iteracion1 + 1);
+//     }, 100);
+//   }, 100);
+// }
+// function alternarFondoGameBoy2(iteracion2) {
+//   if (iteracion2 >= 9) {
+//     pantallaGameBoy.style.backgroundImage = "url('Resources/FraglanSouls.png')";
+//     return;
+//   }
 
-  const imagen = iteracion3 % 2 === 0 ? imagen5 : imagen6;
-  pantallaGameBoy.style.backgroundImage = imagen;
-  gameStatusActive = true;
-  setTimeout(() => {
-    pantallaGameBoy.style.backgroundImage = "";
-    tvScreen.style.backgroundColor = "grey";
-    juego.style.display = "block";
-    pantallaGameBoy.style.backgroundSize = "330px 320px";
-  }, "4000");
+//   const imagen = iteracion2 % 2 === 0 ? imagen3 : imagen4;
+//   pantallaGameBoy.style.backgroundImage = imagen;
+//   gameStatusActive = true;
+//   setTimeout(() => {
+//     pantallaGameBoy.style.backgroundImage = "";
+//     tvScreen.style.backgroundColor = "grey";
+//     juego.style.display = "block";
+//     pantallaGameBoy.style.backgroundSize = "330px 320px";
+//   }, "4000");
 
-  setTimeout(function () {
-    setTimeout(function () {
-      alternarFondoGameBoy3(iteracion3 + 1);
-    }, 100);
-  }, 100);
-}
+//   setTimeout(function () {
+//     setTimeout(function () {
+//       alternarFondoGameBoy2(iteracion2 + 1);
+//     }, 100);
+//   }, 100);
+// }
+// function alternarFondoGameBoy3(iteracion3) {
+//   if (iteracion3 >= 9) {
+//     pantallaGameBoy.style.backgroundImage = "url('Resources/RatsRevenge.png')";
+//     return;
+//   }
+
+//   const imagen = iteracion3 % 2 === 0 ? imagen5 : imagen6;
+//   pantallaGameBoy.style.backgroundImage = imagen;
+//   gameStatusActive = true;
+//   setTimeout(() => {
+//     pantallaGameBoy.style.backgroundImage = "";
+//     tvScreen.style.backgroundColor = "grey";
+//     juego.style.display = "block";
+//     pantallaGameBoy.style.backgroundSize = "330px 320px";
+//   }, "4000");
+
+//   setTimeout(function () {
+//     setTimeout(function () {
+//       alternarFondoGameBoy3(iteracion3 + 1);
+//     }, 100);
+//   }, 100);
+// }
 
 // resto de funciones
 
@@ -223,35 +310,32 @@ function apagarconsolas() {
   ledEncendido.style.backgroundColor = "Grey";
 }
 
-//encendido y apgado TV
+//triggers de eventos
 
 botonEncenderTv.addEventListener("click", (e) => {
   if (e.target.id === "btn-power-tv") {
     if (tvEncendida == false) {
-      tvScreen.style.backgroundImage = "";
+      console.log("entraencender")
       tvScreen.style.backgroundColor = "grey";
       tvEncendida = true;
     }
-  } else if (tvEncendida == true || tvScreen.style.backgroundColor == "grey") {
-    tvScreen.style.backgroundImage = "";
+  else if (tvEncendida == true){
+    console.log("entraapagar")
     tvScreen.style.backgroundColor = "#100f0f";
     tvEncendida = false;
+  } 
   }
 });
-
-//este boton solo ha de funcionar si la consola esta encendida
-
 botonEncenderNes.addEventListener("click", (e) => {
   if (e.target.id === "powerNES") {
     gameStatusActive = false;
-    if (nesEncendida == false && gameBoyEncendida == false) {
+    if (nesEncendida == false && gameBoyEncendida == false && tvEncendida ==true) {
       encenderconsolas();
     } else if (nesEncendida == true && gameBoyEncendida == true) {
       apagarconsolas();
     }
   }
 });
-
 botonEncenderGameBoy.addEventListener("click", (e) => {
   if (e.target.id === "powerGameBoy") {
     gameStatusActive = false;
@@ -296,9 +380,6 @@ botonReset.addEventListener("click", (e) => {
     }
   }
 });
-
-//selectores e inicio de juego
-
 botonAbajo.addEventListener("click", (e) => {
   if (
     e.target.id === "botonAbajo" &&
@@ -328,7 +409,6 @@ botonAbajo.addEventListener("click", (e) => {
     }
   }
 });
-
 botonArriba.addEventListener("click", (e) => {
   if (
     e.target.id === "botonArriba" &&
@@ -359,7 +439,6 @@ botonArriba.addEventListener("click", (e) => {
     }
   }
 });
-
 botonArribaGameboy.addEventListener("click", (e) => {
   if (
     e.target.id === "arribaGB" &&
@@ -389,7 +468,6 @@ botonArribaGameboy.addEventListener("click", (e) => {
     }
   }
 });
-
 botonAbajoGameboy.addEventListener("click", (e) => {
   if (
     e.target.id === "abajoGB" &&
@@ -419,9 +497,6 @@ botonAbajoGameboy.addEventListener("click", (e) => {
     }
   }
 });
-
-//funcionamiento botones start
-
 botonStart.addEventListener("click", (e) => {
   if (
     e.target.id === "botonStart" &&
@@ -429,28 +504,24 @@ botonStart.addEventListener("click", (e) => {
     !gameStatusActive &&
     gameBoyEncendida == true
   ) {
-    alternarFondo1(0);
-    alternarFondoGameBoy1(0);
+    alternarFondoRefactorizada(iteracion,gameSelector);
     gameStatusActive = true;
   } else if (
     e.target.id === "botonStart" &&
     gameSelector === 1 &&
     !gameStatusActive
   ) {
-    alternarFondo2(0);
-    alternarFondoGameBoy2(0);
+    alternarFondoRefactorizada(iteracion,gameSelector);
     gameStatusActive = true;
   } else if (
     e.target.id === "botonStart" &&
     gameSelector === 2 &&
     !gameStatusActive
   ) {
-    alternarFondo3(0);
-    alternarFondoGameBoy3(0);
+    alternarFondoRefactorizada(iteracion,gameSelector);
     gameStatusActive = true;
   }
 });
-
 botonStartGameboy.addEventListener("click", (e) => {
   if (
     e.target.id === "start" &&
@@ -458,24 +529,21 @@ botonStartGameboy.addEventListener("click", (e) => {
     !gameStatusActive &&
     nesEncendida == true
   ) {
-    alternarFondo1(0);
-    alternarFondoGameBoy1(0);
+    alternarFondoRefactorizada(iteracion,gameSelector);
     gameStatusActive = true;
   } else if (
     e.target.id === "start" &&
     gameSelector === 1 &&
     !gameStatusActive
   ) {
-    alternarFondo3(0);
-    alternarFondoGameBoy2(0);
+    alternarFondoRefactorizada(iteracion,gameSelector);
     gameStatusActive = true;
   } else if (
     e.target.id === "start" &&
     gameSelector === 2 &&
     !gameStatusActive
   ) {
-    alternarFondo3(0);
-    alternarFondoGameBoy3(0);
+    alternarFondoRefactorizada(iteracion,gameSelector);
     gameStatusActive = true;
   }
 });

@@ -2,22 +2,11 @@ html {
     font-family: sans-serif;
 }
 
-
-#audio{
-    display: none;
-    
-}
-
-
-
-.carousel-item{
-    transition: 0.01s;
-   
-}
+/*cuerpp */
 .web{
     display: flex;
 }
-
+/*boton on*/
 .ON{
     position: absolute;
     left:32.5em;
@@ -35,7 +24,7 @@ html {
     color:white
 }
 
-
+/*cuerpo de la consola*/
 body {
     
     width: 100vw;
@@ -44,8 +33,6 @@ body {
     max-width: 100%
     
 }
-
-
 
 #carcasa {
 
@@ -134,7 +121,7 @@ body {
 }
 
 
-
+/*logo*/
 .color {
     position: absolute;
     top: 385px;
@@ -193,7 +180,7 @@ body {
     font-size: 2em;
     font-weight: bold;
 }
-
+/*led*/
 .led_on {
     border: solid 1px red;
     width: 0.5em;
@@ -229,7 +216,7 @@ body {
 }
 
 
-
+/*cruceta*/
 .pad {
     position: absolute;
     top: -20px;
@@ -239,7 +226,6 @@ body {
 .pad:hover{
     cursor: pointer;
 }
-
 
 #centro {
     position: absolute;
@@ -274,36 +260,6 @@ body {
     border-bottom: none;
     border-radius: 4px 4px 0px 0px;
     box-shadow: 3px 0px 0px #272929(0, 0, 0, 0.3);
-}
-
-#arriba p {
-    margin: auto;
-    position: relative;
-    top: -12px;
-}
-#arriba:active{
-    opacity: 70%;
-}
-#abajo:active{
-    opacity: 70%;
-}
-#izq:active{
-    opacity: 70%;
-}
-#der:active{
-    opacity: 70%;
-}
-#a:active{
-    opacity: 70%;
-}
-#b:active{
-    opacity: 70%;
-}
-#select:active{
-    opacity: 70%;
-}
-#start:active{
-    opacity: 70%;
 }
 
 #abajo {
@@ -375,7 +331,40 @@ body {
 
 }
 
+#arriba p {
+    margin: auto;
+    position: relative;
+    top: -12px;
+}
 
+/*hovers para ver activaciones*/
+
+#arriba:active{
+    opacity: 70%;
+}
+#abajo:active{
+    opacity: 70%;
+}
+#izq:active{
+    opacity: 70%;
+}
+#der:active{
+    opacity: 70%;
+}
+#a:active{
+    opacity: 70%;
+}
+#b:active{
+    opacity: 70%;
+}
+#select:active{
+    opacity: 70%;
+}
+#start:active{
+    opacity: 70%;
+}
+
+/*botones ab*/
 
 .ab {
     
@@ -421,6 +410,8 @@ body {
     left: 0.6em;
 
 }
+
+/*parte abajo consola*/
 
 .bot {
     
@@ -483,6 +474,8 @@ body {
     line-height: 12px;
     text-shadow: 1px 1px 0px #494786;
 }
+
+/*mediaquerys para escalar segun X resoluciones*/
 
 @media (max-width: 600px) {
 

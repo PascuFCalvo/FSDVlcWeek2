@@ -5,7 +5,7 @@
     color: white;
  }
 
-
+/*television general*/
 #container {
    max-width: 1024px;
    margin: auto;
@@ -18,7 +18,7 @@
    position: absolute;
    z-index: 50;
  }
-
+/*pantalla*/
  #monitor {
    
    width: 900px;
@@ -59,7 +59,7 @@
    overflow: hidden;
 }
 
-
+/*boton de power*/
  .btn-power-tv {
 	margin-top: 35em;
    margin-left: 27em;
@@ -83,9 +83,6 @@
    background: linear-gradient(to bottom, #919090 0%, #5e6060 100%);
 	
 }
- 
- 
-
 
     @media(max-width:1100px){
       #monitor{
