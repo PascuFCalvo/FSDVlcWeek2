@@ -46,12 +46,10 @@ function añadirsonido(){
   var sonido = new Audio('Resources/sonidoBoton.mp3')
   sonido.play()
 }
-
 function musicaJuego(){
   var sonido = new Audio('Resources/musicajuego.mp3')
   sonido.play()
 }
-
 function moveramario() {
   
   let incremento = 5;
@@ -128,7 +126,6 @@ function moveramario() {
     }
   });
 }
-
 // funcion de alternarFondo que simula la carga de juego refactorizada (dejo las otras en comentarios para fines didacticos)
 function alternarFondoRefactorizada(iteracion, gameSelector) {
   switch (gameSelector) {
@@ -405,9 +402,7 @@ function apagarconsolas() {
   tvScreen.style.backgroundColor = "grey";
   ledEncendido.style.backgroundColor = "Grey";
 }
-
 //triggers de eventos
-
 botonEncenderTv.addEventListener("click", (e) => {
   if (e.target.id === "btn-power-tv") {
     if (tvEncendida == false) {
