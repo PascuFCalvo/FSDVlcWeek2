@@ -63,9 +63,12 @@ y que se memorice al volver a encenderla
 ### Instrucciones
 
 #####VERSION WEB
--��Es necesario encender la TV para que todo el sistema comience a funcionar.
+- ��Es necesario encender la TV para que todo el sistema comience a funcionar.
 <br>
 <br>
+
+### Cambios pendientes
+- ��Una funcion que apague la musica
 
 
 ### Agradecimientos
@@ -75,4 +78,4 @@ A toda esos heroes anonimos que suben trocitos de codigo a internet y hace la vi
 ​
 ### Licencia y copyright
 📝 La licencia utilizada es una MIT License.
-Este proyecto ha sido realizado pixel a pixel por mi, Pascual Fernandez, para completar la primera semana del BootCamp Full Stack de GeeksHubs Academy Valencia.
+Este proyecto ha sido realizado pixel a pixel por mi, Pascual Fernandez, para completar la segunda semana del BootCamp Full Stack de GeeksHubs Academy Valencia.
