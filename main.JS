@@ -34,20 +34,20 @@ let nesEncendida = false;
 let gameBoyEncendida = false;
 let gameSelector = 0;
 let gameStatusActive = false;
-const imagen1 = "url('Resources/Juego1.png')";
-const imagen2 = "url('Resources/Juego1-invert.png')";
-const imagen3 = "url('Resources/Juego2.png')";
-const imagen4 = "url('Resources/Juego2-invert.png')";
-const imagen5 = "url('Resources/Juego3.png')";
-const imagen6 = "url('Resources/Juego3-invert.png')";
+const imagen1 = "url('./Resources/Juego1.png')";
+const imagen2 = "url('./Resources/Juego1-invert.png')";
+const imagen3 = "url('./Resources/Juego2.png')";
+const imagen4 = "url('./Resources/Juego2-invert.png')";
+const imagen5 = "url('./Resources/Juego3.png')";
+const imagen6 = "url('./Resources/Juego3-invert.png')";
 let iteracion = 0;
 
 function añadirsonido(){
-  var sonido = new Audio('Resources/sonidoBoton.mp3')
+  var sonido = new Audio('./Resources/sonidoBoton.mp3')
   sonido.play()
 }
 function musicaJuego(){
-  var sonido = new Audio('Resources/musicajuego.mp3')
+  var sonido = new Audio('./Resources/musicajuego.mp3')
   sonido.play()
 }
 function moveramario() {
@@ -132,9 +132,9 @@ function alternarFondoRefactorizada(iteracion, gameSelector) {
     case 0:
       if (iteracion >= 9) {
         tvScreen.style.backgroundImage =
-          "url('Resources/VillesAdventures.png')";
+          "url('./Resources/VillesAdventures.png')";
         pantallaGameBoy.style.backgroundImage =
-          "url('Resources/VillesAdventures.png')";
+          "url('./Resources/VillesAdventures.png')";
         return;
       }
 
@@ -163,9 +163,9 @@ function alternarFondoRefactorizada(iteracion, gameSelector) {
 
     case 1:
       if (iteracion >= 9) {
-        tvScreen.style.backgroundImage = "url('Resources/FraglanSouls.png')";
+        tvScreen.style.backgroundImage = "url('./Resources/FraglanSouls.png')";
         pantallaGameBoy.style.backgroundImage =
-          "url('Resources/FraglanSouls.png')";
+          "url('./Resources/FraglanSouls.png')";
         return;
       }
 
@@ -192,9 +192,9 @@ function alternarFondoRefactorizada(iteracion, gameSelector) {
 
     case 2:
       if (iteracion >= 9) {
-        tvScreen.style.backgroundImage = "url('Resources/RatsRevenge.png')";
+        tvScreen.style.backgroundImage = "url('./Resources/RatsRevenge.png')";
         pantallaGameBoy.style.backgroundImage =
-          "url('Resources/RatsRevenge.png')";
+          "url('./Resources/RatsRevenge.png')";
         return;
       }
 
@@ -369,23 +369,23 @@ function encenderconsolas() {
   gameBoyEncendida = true;
   nesEncendida = true;
   pantallaGameBoy.style.background = "";
-  pantallaGameBoy.style.backgroundImage = "url('Resources/nintendo.png')";
+  pantallaGameBoy.style.backgroundImage = "url('./Resources/nintendo.png')";
   pantallaGameBoy.style.backgroundSize = "330px 320px";
   setTimeout(() => {
     juego.style.display = "none";
     juego2.style.display = "none";
-    pantallaGameBoy.style.backgroundImage = "url('Resources/Juego1.png')";
+    pantallaGameBoy.style.backgroundImage = "url('./Resources/Juego1.png')";
     pantallaGameBoy.style.backgroundSize = "330px 320px";
-    memoria = "url('Resources/Juego1.png')";
+    memoria = "url('./Resources/Juego1.png')";
   }, "2000");
   ledEncendido.style.backgroundColor = "Red";
   tvScreen.style.background = "";
-  tvScreen.style.backgroundImage = "url('Resources/nintendo.png')";
+  tvScreen.style.backgroundImage = "url('./Resources/nintendo.png')";
   tvScreen.style.backgroundSize = "820px 500px";
   setTimeout(() => {
     juego.style.display = "none";
     juego2.style.display = "none";
-    tvScreen.style.backgroundImage = "url('Resources/Juego1.png')";
+    tvScreen.style.backgroundImage = "url('./Resources/Juego1.png')";
     tvScreen.style.backgroundSize = "820px 500px";
   }, "2000");
 }
@@ -482,19 +482,19 @@ botonAbajo.addEventListener("click", (e) => {
     sonidoBoton.play();
     switch (gameSelector) {
       case 0:
-        tvScreen.style.backgroundImage = "url('Resources/Juego1.png')";
+        tvScreen.style.backgroundImage = "url('./Resources/Juego1.png')";
         tvScreen.style.backgroundSize = "820px 500px";
         gameSelector = 0;
         break;
 
       case 1:
-        tvScreen.style.backgroundImage = "url('Resources/Juego2.png')";
+        tvScreen.style.backgroundImage = "url('./Resources/Juego2.png')";
         tvScreen.style.backgroundSize = "820px 500px";
         gameSelector = 1;
         break;
 
       case 2:
-        tvScreen.style.backgroundImage = "url('Resources/Juego3.png')";
+        tvScreen.style.backgroundImage = "url('./Resources/Juego3.png')";
         tvScreen.style.backgroundSize = "820px 500px";
         gameSelector = 2;
         break;
@@ -513,19 +513,19 @@ botonArriba.addEventListener("click", (e) => {
     sonidoBoton.play();
     switch (gameSelector) {
       case 0:
-        tvScreen.style.backgroundImage = "url('Resources/Juego1.png')";
+        tvScreen.style.backgroundImage = "url('./Resources/Juego1.png')";
         tvScreen.style.backgroundSize = "820px 500px";
         gameSelector = 0;
         break;
 
       case 1:
-        tvScreen.style.backgroundImage = "url('Resources/Juego2.png')";
+        tvScreen.style.backgroundImage = "url('./Resources/Juego2.png')";
         tvScreen.style.backgroundSize = "820px 500px";
         gameSelector = 1;
         break;
 
       case 2:
-        tvScreen.style.backgroundImage = "url('Resources/Juego3.png')";
+        tvScreen.style.backgroundImage = "url('./Resources/Juego3.png')";
         tvScreen.style.backgroundSize = "820px 500px";
         gameSelector = 2;
         break;
@@ -543,19 +543,19 @@ botonArribaGameboy.addEventListener("click", (e) => {
     sonidoBoton.play();
     switch (gameSelector) {
       case 0:
-        pantallaGameBoy.style.backgroundImage = "url('Resources/Juego1.png')";
+        pantallaGameBoy.style.backgroundImage = "url('./Resources/Juego1.png')";
         pantallaGameBoy.style.backgroundSize = "330px 320px";
         gameSelector = 0;
         break;
 
       case 1:
-        pantallaGameBoy.style.backgroundImage = "url('Resources/Juego2.png')";
+        pantallaGameBoy.style.backgroundImage = "url('./Resources/Juego2.png')";
         pantallaGameBoy.style.backgroundSize = "330px 320px";
         gameSelector = 1;
         break;
 
       case 2:
-        pantallaGameBoy.style.backgroundImage = "url('Resources/Juego3.png')";
+        pantallaGameBoy.style.backgroundImage = "url('./Resources/Juego3.png')";
         pantallaGameBoy.style.backgroundSize = "330px 320px";
         gameSelector = 2;
         break;
@@ -573,19 +573,19 @@ botonAbajoGameboy.addEventListener("click", (e) => {
     sonidoBoton.play();
     switch (gameSelector) {
       case 0:
-        pantallaGameBoy.style.backgroundImage = "url('Resources/Juego1.png')";
+        pantallaGameBoy.style.backgroundImage = "url('./Resources/Juego1.png')";
         pantallaGameBoy.style.backgroundSize = "330px 320px";
         gameSelector = 0;
         break;
 
       case 1:
-        pantallaGameBoy.style.backgroundImage = "url('Resources/Juego2.png')";
+        pantallaGameBoy.style.backgroundImage = "url('./Resources/Juego2.png')";
         pantallaGameBoy.style.backgroundSize = "330px 320px";
         gameSelector = 1;
         break;
 
       case 2:
-        pantallaGameBoy.style.backgroundImage = "url('Resources/Juego3.png')";
+        pantallaGameBoy.style.backgroundImage = "url('./Resources/Juego3.png')";
         pantallaGameBoy.style.backgroundSize = "330px 320px";
         gameSelector = 2;
         break;
