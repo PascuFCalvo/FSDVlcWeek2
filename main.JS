@@ -1,5 +1,5 @@
 //elementos traidos para asignarles eventos
-
+//linea para hacer un commit 
 let botonEncenderTv = document.getElementById("btn-power-tv");
 let tvScreen = document.getElementById("monitorscreen");
 let botonEncenderNes = document.getElementById("powerNES");
