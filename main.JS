@@ -42,7 +42,18 @@ const imagen5 = "url('Resources/Juego3.png')";
 const imagen6 = "url('Resources/Juego3-invert.png')";
 let iteracion = 0;
 
+function añadirsonido(){
+  var sonido = new Audio('Resources/sonidoBoton.mp3')
+  sonido.play()
+}
+
+function musicaJuego(){
+  var sonido = new Audio('Resources/musicajuego.mp3')
+  sonido.play()
+}
+
 function moveramario() {
+  
   let incremento = 5;
   let actualPositionGB = 20;
   let actualPositionNES = 20;
@@ -142,7 +153,9 @@ function alternarFondoRefactorizada(iteracion, gameSelector) {
         pantallaGameBoy.style.backgroundImage = "";
         juego.style.display = "block";
         pantallaGameBoy.style.backgroundSize = "330px 320px";
+        
       }, 4000);
+      
 
       setTimeout(function () {
         setTimeout(function () {
@@ -494,11 +507,13 @@ botonAbajo.addEventListener("click", (e) => {
   }
 });
 botonArriba.addEventListener("click", (e) => {
+  
   if (
     e.target.id === "botonArriba" &&
     !gameStatusActive &&
     nesEncendida == true
   ) {
+    añadirsonido()
     gameSelector--;
     sonidoBoton.play();
     switch (gameSelector) {
@@ -528,6 +543,7 @@ botonArribaGameboy.addEventListener("click", (e) => {
     gameStatusActive == false &&
     gameBoyEncendida == true
   ) {
+    añadirsonido()
     gameSelector--;
     sonidoBoton.play();
     switch (gameSelector) {
@@ -557,6 +573,7 @@ botonAbajoGameboy.addEventListener("click", (e) => {
     gameStatusActive == false &&
     gameBoyEncendida == true
   ) {
+    añadirsonido()
     gameSelector++;
     sonidoBoton.play();
     switch (gameSelector) {
@@ -587,14 +604,20 @@ botonStart.addEventListener("click", (e) => {
     !gameStatusActive &&
     gameBoyEncendida == true
   ) {
+    añadirsonido()
     alternarFondoRefactorizada(iteracion, gameSelector);
     gameStatusActive = true;
     moveramario();
+    setTimeout(() => {
+      musicaJuego()
+      
+    }, 3000);
   } else if (
     e.target.id === "botonStart" &&
     gameSelector === 1 &&
     !gameStatusActive
   ) {
+    añadirsonido()
     alternarFondoRefactorizada(iteracion, gameSelector);
     gameStatusActive = true;
   } else if (
@@ -602,6 +625,7 @@ botonStart.addEventListener("click", (e) => {
     gameSelector === 2 &&
     !gameStatusActive
   ) {
+    añadirsonido()
     alternarFondoRefactorizada(iteracion, gameSelector);
     gameStatusActive = true;
   }
@@ -613,14 +637,20 @@ botonStartGameboy.addEventListener("click", (e) => {
     !gameStatusActive &&
     nesEncendida == true
   ) {
+    añadirsonido()
     alternarFondoRefactorizada(iteracion, gameSelector);
     gameStatusActive = true;
     moveramario();
+    setTimeout(() => {
+      musicaJuego()
+      
+    }, 3000);
   } else if (
     e.target.id === "start" &&
     gameSelector === 1 &&
     !gameStatusActive
   ) {
+    añadirsonido()
     alternarFondoRefactorizada(iteracion, gameSelector);
     gameStatusActive = true;
   } else if (
@@ -628,6 +658,7 @@ botonStartGameboy.addEventListener("click", (e) => {
     gameSelector === 2 &&
     !gameStatusActive
   ) {
+    añadirsonido()
     alternarFondoRefactorizada(iteracion, gameSelector);
     gameStatusActive = true;
   }
