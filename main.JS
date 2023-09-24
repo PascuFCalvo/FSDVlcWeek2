@@ -28,7 +28,7 @@ let botonIzquierdaNes = document.getElementById("izquierdaNES");
 let botonANes = document.getElementById("aNes");
 
 //variables y constantes
-
+let reproduciendo = false;
 let tvEncendida = false;
 let nesEncendida = false;
 let gameBoyEncendida = false;
@@ -43,13 +43,26 @@ const imagen6 = "url('./Resources/Juego3-invert.png')";
 let iteracion = 0;
 
 function añadirsonido(){
-  var sonido = new Audio('./Resources/sonidoBoton.mp3')
-  sonido.play()
+  var sonido = new Audio('./Resources/sonidoBoton.mp3');
+  sonido.play();
 }
 function musicaJuego(){
-  var sonido = new Audio('./Resources/musicajuego.mp3')
-  sonido.play()
+  if(reproduciendo == false){
+  var sonido = new Audio('./Resources/musicajuego.mp3');
+  sonido.play();
+  reproduciendo = true;
 }
+  
+}
+
+function detenerMusicaJuego() {
+  if (reproduciendo == true) {
+    sonido.pause();
+    sonido.currentTime = 0;
+    reproduciendo = false;
+  }
+}
+
 function moveramario() {
   
   let incremento = 5;
@@ -359,6 +372,8 @@ function alternarFondoRefactorizada(iteracion, gameSelector) {
 function cerrarjuegos() {
   juego.style.display = "none";
   juego2.style.display = "none";
+  
+  
 }
 function encenderconsolas() {
   gameSelector = 0;
@@ -390,8 +405,6 @@ function encenderconsolas() {
   }, "2000");
 }
 function apagarconsolas() {
-  juego.style.display = "none";
-  juego2.style.display = "none";
   gameStatusActive = false;
   ledGameBoy.style.backgroundColor = "black";
   gameBoyEncendida = false;
@@ -400,7 +413,9 @@ function apagarconsolas() {
   pantallaGameBoy.style.backgroundColor = "#84d07d";
   tvScreen.style.backgroundImage = "";
   tvScreen.style.backgroundColor = "grey";
-  ledEncendido.style.backgroundColor = "Grey";
+  ledEncendido.style.backgroundColor = "grey";
+  juego.style.display = "none";
+  juego2.style.display = "none";
 }
 //triggers de eventos
 botonEncenderTv.addEventListener("click", (e) => {
@@ -416,15 +431,15 @@ botonEncenderTv.addEventListener("click", (e) => {
 });
 botonEncenderNes.addEventListener("click", (e) => {
   if (e.target.id === "powerNES") {
-    gameStatusActive = false;
+    
     if (
       nesEncendida == false &&
-      gameBoyEncendida == false &&
-      tvEncendida == true
-    ) {
+      gameBoyEncendida == false) {
       encenderconsolas();
     } else if (nesEncendida == true && gameBoyEncendida == true) {
+     
       apagarconsolas();
+      
     }
   }
 });
@@ -443,6 +458,7 @@ botonEncenderGameBoy.addEventListener("click", (e) => {
 botonReset.addEventListener("click", (e) => {
   if (e.target.id === "resetNES") {
     if (nesEncendida == true && gameBoyEncendida == true) {
+      
       juego.style.display = "none";
       juego2.style.display = "none";
       gameStatusActive = false;
