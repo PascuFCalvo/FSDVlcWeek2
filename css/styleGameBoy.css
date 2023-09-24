@@ -379,7 +379,7 @@ body {
 #a {
     position: absolute;
 
-    left: -120px;
+    left: -100px;
     height: 60px;
     width: 60px;
     border-radius: 50%;
@@ -475,7 +475,7 @@ body {
     text-shadow: 1px 1px 0px #494786;
 }
 
-/*mediaquerys para escalar segun X resoluciones*/
+/*mediaquerys para escalar segun X*/
 
 @media (max-width: 600px) {
 

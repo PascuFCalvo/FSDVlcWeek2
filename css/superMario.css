@@ -100,7 +100,7 @@ html, body{
    z-index: 1;
 }
 
-.mario-game-GB #mario {
+.mario-game-GB #marioGB {
    position: absolute;
    left: 20px;
    bottom: 40px;
@@ -116,7 +116,7 @@ html, body{
 
 .mario-game #mario {
    position: absolute;
-   left: 60px;
+   left: 20px;
    bottom: 40px;
    height: 100px;
    width: 71px;
@@ -134,43 +134,12 @@ html, body{
 
 }
 
-/* JUMPING */
 
-@keyframes jump {
-   0%{
-      -webkit-transform: translateY(0);
-      transform: translateY(0);
-      background-position-x: -1055px;
-   }
-   20%{
-      -webkit-transform: translateY(0);
-      transform: translateY(0);
-   }
-   40%{
-      -webkit-transform: translateY(-120px);
-      transform: translateY(-120px);
-   }
-   50%{
-      -webkit-transform: translateY(0);
-      transform: translateY(0);
-   }
-   60%{
-      -webkit-transform: translateY(-15px);
-      transform: translateY(-15px);
-   }
-   80%{
-      -webkit-transform: translateY(0);
-      transform: translateY(0);
-      background-position-x: -1055px
-   }
-   100%{
-      -webkit-transform: translateY(0);
-      transform: translateY(0);
-      
-   }
-}
 
 #mario.lookingLeft {
+   background-position-x: -518px;
+}
+#marioGB.lookingLeft {
    background-position-x: -518px;
 }
 
@@ -178,23 +147,13 @@ html, body{
    background-position-x: -610px;
 }
 
-#mario.runningRight {
-   animation: rightRunning 0.5s steps(3) infinite;
-   background-position-x: -700px;
+#marioGB.lookingRight {
+   background-position-x: -610px;
 }
 
-#mario.runningLeft {
-   animation: leftRunning 0.5s steps(3) infinite;
-   background-position-x: -430px;
-}
 
-@keyframes rightRunning{
-   100%{background-position-x: -965px;}
-}
 
-@keyframes leftRunning{
-   100%{background-position-x: -165px;}
-}
+
 
 /* marcador */
 
@@ -272,7 +231,18 @@ div#block {
    z-index: -1;
    bottom: 10px;
    width: 24px;
-   left: 13px;
+   left: -150px;
+   
+
+}
+
+#coinGB {
+   display: block;
+   position: absolute;
+   z-index: -1;
+   bottom: 140px;
+   width: 25px;
+   left: -350px;
    
 
 }
